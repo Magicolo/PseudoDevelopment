@@ -9,72 +9,53 @@ namespace Pseudo.Internal.Tests
 {
 	public class PoolTests : PMonoBehaviour
 	{
-		public CircleZone Zone;
-		public PMonoBehaviour[] Prefabs;
-		public PMonoBehaviour Poolable;
+		public PoolableTest PrefabTest;
 
 		[Button]
-		public bool createRandomItemInPrefabs;
-		void CreateRandomItemInPrefabsz()
+		public bool createPoolableInstance;
+		[Button]
+		public bool createRecycle1000PoolableInstance;
+		[Button]
+		public bool instantiateDestroy1000Instances;
+
+		void CreatePoolableItemTest()
 		{
-			PMonoBehaviour item = Pools.BehaviourPool.Create(Prefabs.GetRandom(), Zone.GetRandomWorldPoint(), CachedTransform);
-			StartCoroutine(RecycleAfterDelay(item, 1f));
+			PMonoBehaviour instance = PoolManager.Create(PrefabTest);
+			StartCoroutine(RecycleAfterDelay(instance, 1f));
 		}
 
-		[Button]
-		public bool create1000RandomItemInPrefabs;
-		void Create1000RandomItemInPrefabsz()
+		void CreateRecycle1000PoolableItemTest()
 		{
 			for (int i = 0; i < 1000; i++)
-				CreateRandomItemInPrefabsz();
+				PoolManager.Recycle(PoolManager.Create(PrefabTest));
 		}
 
-		[Button]
-		public bool instantiate1000RandomItemInPrefabs;
-		void Instantiate1000RandomItemInPrefabsz()
+		void InstantiateDestroy1000InstancesTest()
 		{
 			for (int i = 0; i < 1000; i++)
-			{
-				PMonoBehaviour item = Instantiate(Prefabs.GetRandom());
-				item.transform.parent = transform;
-				StartCoroutine(DestroyAfterDelay(item, 1f));
-			}
+				Instantiate(PrefabTest).CachedGameObject.Destroy();
 		}
 
-		[Button]
-		public bool createPoolableItem;
-		void CreatePoolableItemz()
+		void Awake()
 		{
-			PMonoBehaviour item = Pools.BehaviourPool.Create(Poolable);
-			StartCoroutine(RecycleAfterDelay(item, 1f));
 		}
 
 		void Update()
 		{
-			if (createRandomItemInPrefabs)
-				CreateRandomItemInPrefabsz();
-			else if (create1000RandomItemInPrefabs)
-				Create1000RandomItemInPrefabsz();
-			else if (instantiate1000RandomItemInPrefabs)
-				Instantiate1000RandomItemInPrefabsz();
-			else if (createPoolableItem)
-				CreatePoolableItemz();
+			if (createPoolableInstance)
+				CreatePoolableItemTest();
+			else if (createRecycle1000PoolableInstance)
+				CreateRecycle1000PoolableItemTest();
+			else if (instantiateDestroy1000Instances)
+				InstantiateDestroy1000InstancesTest();
 		}
 
-		IEnumerator RecycleAfterDelay(PMonoBehaviour item, float delay)
+		IEnumerator RecycleAfterDelay(PMonoBehaviour instance, float delay)
 		{
 			for (float counter = 0f; counter < delay; counter += Time.deltaTime)
 				yield return null;
 
-			Pools.BehaviourPool.Recycle(item);
-		}
-
-		IEnumerator DestroyAfterDelay(PMonoBehaviour item, float delay)
-		{
-			for (float counter = 0f; counter < delay; counter += Time.deltaTime)
-				yield return null;
-
-			item.gameObject.Destroy();
+			PoolManager.Recycle(instance);
 		}
 	}
 }

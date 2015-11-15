@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 71807686}
   - 114: {fileID: 71807685}
-  - 114: {fileID: 71807687}
   m_Layer: 0
   m_Name: PoolTest
   m_TagString: Untagged
@@ -114,16 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763c8d0741d23744294185a0922fc2f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Zone: {fileID: 71807687}
-  Prefabs:
-  - {fileID: 11453142, guid: 42cec4cfc9a054747a9f2333819d4f2b, type: 2}
-  - {fileID: 11454106, guid: 3dcd369ae6be0c844be01f70b317b371, type: 2}
-  - {fileID: 11456120, guid: cd0e8681e98200d4a8f42a4c560e5fa7, type: 2}
-  Poolable: {fileID: 11410320, guid: a47bf1146536aa646a2dfb19425b5824, type: 2}
-  createRandomItemInPrefabs: 0
-  create1000RandomItemInPrefabs: 0
-  instantiate1000RandomItemInPrefabs: 0
-  createPoolableItem: 0
+  PrefabTest: {fileID: 11473820, guid: 42cec4cfc9a054747a9f2333819d4f2b, type: 2}
+  createPoolableInstance: 0
+  createRecycle1000PoolableInstance: 0
+  instantiateDestroy1000Instances: 0
 --- !u!4 &71807686
 Transform:
   m_ObjectHideFlags: 0
@@ -136,23 +129,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &71807687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11445106, guid: c015b9cb0d6b3fc4d9845d36b92b68d4,
-    type: 2}
-  m_PrefabInternal: {fileID: 791940760}
-  m_GameObject: {fileID: 71807684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9211a5c84d99f664c82c75c683a9d768, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circle:
-    x: 0
-    y: 0
-    radius: 10
-  draw: 1
 --- !u!1001 &791940760
 Prefab:
   m_ObjectHideFlags: 0
@@ -197,7 +173,17 @@ Prefab:
       value: 
       objectReference: {fileID: 11410320, guid: a47bf1146536aa646a2dfb19425b5824,
         type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 11433936, guid: c015b9cb0d6b3fc4d9845d36b92b68d4, type: 2}
+      propertyPath: Prefab
+      value: 
+      objectReference: {fileID: 11473820, guid: 42cec4cfc9a054747a9f2333819d4f2b,
+        type: 2}
+    - target: {fileID: 11433936, guid: c015b9cb0d6b3fc4d9845d36b92b68d4, type: 2}
+      propertyPath: PrefabTest
+      value: 
+      objectReference: {fileID: 11473820, guid: 42cec4cfc9a054747a9f2333819d4f2b,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: c015b9cb0d6b3fc4d9845d36b92b68d4, type: 2}
-  m_RootGameObject: {fileID: 71807684}
   m_IsPrefabParent: 0

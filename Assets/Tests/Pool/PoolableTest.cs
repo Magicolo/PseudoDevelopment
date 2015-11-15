@@ -7,31 +7,35 @@ using Pseudo;
 
 namespace Pseudo.Internal.Tests
 {
-	[Copy]
-	public class PoolableTest : PMonoBehaviour, ICopyable<PoolableTest>
+	public class PoolableTest : SubPoolableTest
 	{
-		public float Float;
-		[CopyTo]
-		public CircleZone Zone;
+		[DoNotInitialize]
+		public GameObject GameObject;
+		public Transform Transform;
+		public Rect Rect;
+		public Bounds Bounds;
+		[DoNotInitialize]
+		public float Popy { get; set; }
 
 		public override void OnCreate()
 		{
 			base.OnCreate();
 
 			Float = PRandom.Range(1f, 100f);
+			Vector = UnityEngine.Random.insideUnitCircle;
+			Transform = null;
+			Rect = new Rect(1, 23, 4, 5);
+			Bounds = new Bounds(Vector, Vector);
+			Zone.LocalCircle = new Circle(Vector, Float);
+			Popy = Float;
 		}
+	}
 
-		public override void OnRecycle()
-		{
-			base.OnRecycle();
-
-			PDebug.LogMethod(this, GetHashCode(), Float, Zone.LocalCircle);
-		}
-
-		public void Copy(PoolableTest reference)
-		{
-			Float = reference.Float;
-			CopyUtility.CopyTo(reference.Zone, ref Zone);
-		}
+	public class SubPoolableTest : PMonoBehaviour
+	{
+		public float Float;
+		public Vector2 Vector;
+		[InitializeContent]
+		public CircleZone Zone;
 	}
 }
