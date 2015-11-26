@@ -15,14 +15,14 @@ namespace Pseudo.Internal.Tests
 		public bool playRandomEffectInPrefabs;
 		void PlayRandomEffectInPrefabs()
 		{
-			ParticleManager.Instance.Create(EffectPrefabs.GetRandom(), CachedTransform.position + new Vector3(3f, 3f), CachedTransform);
+			ParticleManager.Instance.Create(EffectPrefabs.GetRandom(), Transform.position + new Vector3(3f, 3f), Transform);
 		}
 
 		[Button]
 		public bool playRegisteredEffect;
 		void PlayRegisteredEffect()
 		{
-			ParticleManager.Instance.Create("Effect3", CachedTransform.position + new Vector3(-3f, 3f), CachedTransform);
+			ParticleManager.Instance.Create("Effect3", Transform.position + new Vector3(-3f, 3f), Transform);
 		}
 	}
 }

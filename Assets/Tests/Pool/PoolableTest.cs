@@ -10,8 +10,8 @@ namespace Pseudo.Internal.Tests
 	public class PoolableTest : SubPoolableTest
 	{
 		[DoNotInitialize]
-		public GameObject GameObject;
-		public Transform Transform;
+		public GameObject AGameObject;
+		public Transform ATransform;
 		public Rect Rect;
 		public Bounds Bounds;
 		[DoNotInitialize]
@@ -23,7 +23,7 @@ namespace Pseudo.Internal.Tests
 
 			Float = PRandom.Range(1f, 100f);
 			Vector = UnityEngine.Random.insideUnitCircle;
-			Transform = null;
+			ATransform = null;
 			Rect = new Rect(1, 23, 4, 5);
 			Bounds = new Bounds(Vector, Vector);
 			Zone.LocalCircle = new Circle(Vector, Float);

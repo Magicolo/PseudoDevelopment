@@ -85,51 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &439327838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100650, guid: 2ff83f09f93e5be41942854dec957ead, type: 2}
-  m_PrefabInternal: {fileID: 1359238843}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 439327840}
-  - 114: {fileID: 439327839}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &439327839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11444824, guid: 2ff83f09f93e5be41942854dec957ead,
-    type: 2}
-  m_PrefabInternal: {fileID: 1359238843}
-  m_GameObject: {fileID: 439327838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4b0a67272616bf4ba429833d37fa7fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioManager: {fileID: 11454786, guid: aa32c97238b77cf4598fb79d84f19635, type: 2}
-  GravityManager: {fileID: 0}
-  InputManager: {fileID: 0}
-  ParticleManager: {fileID: 0}
-  TimeManager: {fileID: 0}
---- !u!4 &439327840
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 415428, guid: 2ff83f09f93e5be41942854dec957ead, type: 2}
-  m_PrefabInternal: {fileID: 1359238843}
-  m_GameObject: {fileID: 439327838}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!1001 &1359238843
 Prefab:
   m_ObjectHideFlags: 0
@@ -171,7 +126,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ff83f09f93e5be41942854dec957ead, type: 2}
-  m_RootGameObject: {fileID: 439327838}
   m_IsPrefabParent: 0
 --- !u!1 &1513009075
 GameObject:

@@ -7,39 +7,58 @@ using Pseudo;
 using UnityEngine.EventSystems;
 using System.Threading;
 using System.Reflection;
+using Pseudo.Internal.Audio;
+using System.Runtime.Serialization;
+using Pseudo.Internal;
 
 public class zTest : PMonoBehaviour
 {
-	public zTest Integer;
-	FieldInfo field = typeof(zTest).GetField("Integer");
 	const int iterations = 1000;
+
+	Dictionary<Type, object> dict = new Dictionary<Type, object>();
 
 	[Button]
 	public bool test;
 	void Test()
 	{
-		//PDebug.LogTest("Get", () => field.GetValue(this), 1000000);
-		//PDebug.LogTest("Set", () => field.SetValue(this, i), 1000000);
+		PDebug.LogTest("Dict", () => GetValue(typeof(Dummy)), 1000000);
+		PDebug.LogTest("Static", () => GetValue<Dummy>(), 1000000);
 	}
 
-	void GetTest()
+	object GetValue(Type type)
 	{
-		for (int i = 0; i < iterations; i++)
-			field.GetValue(this);
+		object value;
+
+		if (!dict.TryGetValue(type, out value))
+		{
+			value = Activator.CreateInstance(type);
+			dict[type] = value;
+		}
+
+		return value;
 	}
 
-	void SetTest()
+	T GetValue<T>()
 	{
-		for (int i = 0; i < iterations; i++)
-			field.SetValue(this, null);
+		return ObjectHolder<T>.Obj;
+	}
+
+	void Start()
+	{
 	}
 
 	void Update()
 	{
-		if (test)
-		{
-			GetTest();
-			SetTest();
-		}
+
 	}
+}
+
+public static class ObjectHolder<T>
+{
+	public static T Obj = Activator.CreateInstance<T>();
+}
+
+public class Dummy
+{
+
 }
