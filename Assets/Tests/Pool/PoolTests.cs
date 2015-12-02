@@ -33,7 +33,7 @@ namespace Pseudo.Internal.Tests
 		void InstantiateDestroy1000InstancesTest()
 		{
 			for (int i = 0; i < 1000; i++)
-				Instantiate(PrefabTest).GameObject.Destroy();
+				Instantiate(PrefabTest).CachedGameObject.Destroy();
 		}
 
 		void Awake()
