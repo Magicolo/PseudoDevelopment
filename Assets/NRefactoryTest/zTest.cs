@@ -13,49 +13,47 @@ using Pseudo.Internal;
 
 public class zTest : PMonoBehaviour
 {
-	const int iterations = 1000;
+    const int iterations = 1000;
 
-	Dictionary<Type, object> dict = new Dictionary<Type, object>();
+    Dictionary<Type, object> dict = new Dictionary<Type, object>();
 
-	[Button]
-	public bool test;
-	void Test()
-	{
-		PDebug.LogTest("Dict", () => GetValue(typeof(Dummy)), 1000000);
-		PDebug.LogTest("Static", () => GetValue<Dummy>(), 1000000);
-	}
+    [Button]
+    public bool test;
+    void Test()
+    {
+        PDebug.LogTest("Dict", () => GetValue(typeof(Dummy)), 1000000);
+        PDebug.LogTest("Static", () => GetValue<Dummy>(), 1000000);
+    }
 
-	object GetValue(Type type)
-	{
-		object value;
+    object GetValue(Type type)
+    {
+        object value;
 
-		if (!dict.TryGetValue(type, out value))
-		{
-			value = Activator.CreateInstance(type);
-			dict[type] = value;
-		}
+        if (!dict.TryGetValue(type, out value))
+        {
+            value = Activator.CreateInstance(type);
+            dict[type] = value;
+        }
 
-		return value;
-	}
+        return value;
+    }
 
-	T GetValue<T>()
-	{
-		return ObjectHolder<T>.Obj;
-	}
+    T GetValue<T>()
+    {
+        return ObjectHolder<T>.Obj;
+    }
 
-	void Start()
-	{
-	}
 
-	void Update()
-	{
 
-	}
+    void Update()
+    {
+
+    }
 }
 
 public static class ObjectHolder<T>
 {
-	public static T Obj = Activator.CreateInstance<T>();
+    public static T Obj = Activator.CreateInstance<T>();
 }
 
 public class Dummy
