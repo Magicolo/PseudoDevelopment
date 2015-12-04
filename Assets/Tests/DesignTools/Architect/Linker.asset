@@ -13,9 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savedTime: 0
   Tilesets:
-  - Name: 
+  - Name: Base
     Tiles:
     - Id: 1
       Prefab: {fileID: 152250, guid: a321a1e5cfe6380498e8790f1ac5cd23, type: 2}
+      PreviewSprite: {fileID: 21300002, guid: 28a8b08bc8e3677458db4cbd3734bcc2, type: 3}
     - Id: 2
       Prefab: {fileID: 185582, guid: 76f1acb7088345e46aad78d234d4e2a8, type: 2}
+      PreviewSprite: {fileID: 21300000, guid: 28a8b08bc8e3677458db4cbd3734bcc2, type: 3}
