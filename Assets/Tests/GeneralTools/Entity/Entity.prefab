@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &119836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 447050}
+  - 114: {fileID: 11423954}
+  - 50: {fileID: 5003532}
+  m_Layer: 0
+  m_Name: Entity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &447050
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!50 &5003532
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119836}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &11423954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869701b383d02c745b2315064e48050d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group:
+    flag1: 0
+    flag2: 0
+    flag3: 0
+    flag4: 0
+  references:
+  - Index: 1
+    Path: Rigidbody
+    Reference: {fileID: 5003532}
+  data: "2\r\nPseudo.TimeComponent\r\n{\"active\":true,\"channel\":2,\"timeScale\":1.0}\r\nPseudo.Internal.Tests.MotionComponent\r\n{\"active\":true,\"Rigidbody\":{\"instanceID\":0},\"Direction\":{\"x\":0.0,\"y\":0.0}}\r\n"
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: references.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: data
+      value: "3\r\nPseudo.TimeComponent\r\n{\"active\":true,\"channel\":3,\"timeScale\":1.0}\r\nPseudo.Internal.Tests.MotionComponent\r\n{\"active\":true,\"Rigidbody\":{\"instanceID\":0},\"Direction\":{\"x\":0.0,\"y\":0.0}}\r\nPseudo.TimeComponent\r\n{\"active\":true,\"channel\":3,\"timeScale\":1.0}\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[0].Path
+      value: GAMEOBJECTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: group.flag1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[0].Reference
+      value: 
+      objectReference: {fileID: 5003532}
+    - target: {fileID: 0}
+      propertyPath: serializedData
+      value: "0\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[6].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[6].Path
+      value: GAMEOBJECTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[7].Index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[7].Path
+      value: REFERENCE.GO
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[4].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[4].Path
+      value: GAMEOBJECTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[5].Index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[5].Path
+      value: REFERENCE.GO
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[2].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[2].Path
+      value: GAMEOBJECTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[3].Index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[3].Path
+      value: REFERENCE.GO
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[1].Path
+      value: REFERENCE.GO
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[1].Reference
+      value: 
+      objectReference: {fileID: 119836}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[3].Reference
+      value: 
+      objectReference: {fileID: 132614, guid: 0ea29d261c344ff46aec90cc94f2aa72, type: 2}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[5].Reference
+      value: 
+      objectReference: {fileID: 132614, guid: 0ea29d261c344ff46aec90cc94f2aa72, type: 2}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[6].Reference
+      value: 
+      objectReference: {fileID: 132614, guid: 0ea29d261c344ff46aec90cc94f2aa72, type: 2}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[7].Reference
+      value: 
+      objectReference: {fileID: 132614, guid: 0ea29d261c344ff46aec90cc94f2aa72, type: 2}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[4].Reference
+      value: 
+      objectReference: {fileID: 132614, guid: 0ea29d261c344ff46aec90cc94f2aa72, type: 2}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[2].Reference
+      value: 
+      objectReference: {fileID: 132614, guid: 0ea29d261c344ff46aec90cc94f2aa72, type: 2}
+    - target: {fileID: 0}
+      propertyPath: references.Array.data[0].Index
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 119836}
+  m_IsPrefabParent: 1
