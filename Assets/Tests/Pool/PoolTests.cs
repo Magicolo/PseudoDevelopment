@@ -20,14 +20,14 @@ namespace Pseudo.Internal.Tests
 
 		void CreatePoolableItemTest()
 		{
-			PMonoBehaviour instance = PoolManager.Create(PrefabTest);
+			PMonoBehaviour instance = PrefabPoolManager.Create(PrefabTest);
 			StartCoroutine(RecycleAfterDelay(instance, 1f));
 		}
 
 		void CreateRecycle1000PoolableItemTest()
 		{
 			for (int i = 0; i < 1000; i++)
-				PoolManager.Recycle(PoolManager.Create(PrefabTest));
+				PrefabPoolManager.Recycle(PrefabPoolManager.Create(PrefabTest));
 		}
 
 		void InstantiateDestroy1000InstancesTest()
@@ -55,7 +55,7 @@ namespace Pseudo.Internal.Tests
 			for (float counter = 0f; counter < delay; counter += Time.deltaTime)
 				yield return null;
 
-			PoolManager.Recycle(instance);
+			PrefabPoolManager.Recycle(instance);
 		}
 	}
 }

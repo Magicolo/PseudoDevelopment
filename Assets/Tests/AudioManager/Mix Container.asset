@@ -22,10 +22,31 @@ MonoBehaviour:
   RandomVolume: 0
   RandomPitch: .200000003
   RTPCs: []
-  Options: []
+  Options:
+  - type: 1
+    value:
+      type: 11
+      isArray: 1
+      data: 0b03000000000000000000000000000000
+      objectValue: []
+    delay: 0
+  - type: 1
+    value:
+      type: 11
+      isArray: 1
+      data: 0b03000000000000400000a04000000000
+      objectValue: []
+    delay: 0
   Sources:
   - Settings: {fileID: 11400000, guid: df6d3ab9b72d97d4a929c7074c95b755, type: 2}
-    Options: []
+    Options:
+    - type: 1
+      value:
+        type: 11
+        isArray: 1
+        data: 0b030000000000a0400000803f00000000
+        objectValue: []
+      delay: 0
   - Settings: {fileID: 11400000, guid: 567f9c448556c39449d4ca683925c58e, type: 2}
     Options: []
   - Settings: {fileID: 11400000, guid: 55da9242b06842747b0f0297c5bb7521, type: 2}
@@ -33,4 +54,4 @@ MonoBehaviour:
   Delays:
   - 0
   - .20000000298023224
-  - .40000000596046448
+  - .37000000476837158

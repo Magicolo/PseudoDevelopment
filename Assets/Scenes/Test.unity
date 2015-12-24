@@ -112,7 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Integer: {fileID: 973815250}
+  ACurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  AReference: {fileID: 0}
   test: 0
 --- !u!4 &973815251
 Transform:
