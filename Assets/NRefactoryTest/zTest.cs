@@ -10,53 +10,77 @@ using System.Reflection;
 using Pseudo.Internal.Audio;
 using System.Runtime.Serialization;
 using Pseudo.Internal;
+using Pseudo2;
 
 public class zTest : PMonoBehaviour
 {
-    const int iterations = 1000;
+	const int iterations = 1000;
 
-    Dictionary<Type, object> dict = new Dictionary<Type, object>();
-
-    [Button]
-    public bool test;
-    void Test()
-    {
-        PDebug.LogTest("Dict", () => GetValue(typeof(Dummy)), 1000000);
-        PDebug.LogTest("Static", () => GetValue<Dummy>(), 1000000);
-    }
-
-    object GetValue(Type type)
-    {
-        object value;
-
-        if (!dict.TryGetValue(type, out value))
-        {
-            value = Activator.CreateInstance(type);
-            dict[type] = value;
-        }
-
-        return value;
-    }
-
-    T GetValue<T>()
-    {
-        return ObjectHolder<T>.Obj;
-    }
-
-
-
-    void Update()
-    {
-
-    }
+	[Button]
+	public bool test;
+	void Test()
+	{
+	}
 }
 
-public static class ObjectHolder<T>
+[Serializable, ComponentCategory("Motion")]
+public class PositionComponent : ComponentBase
 {
-    public static T Obj = Activator.CreateInstance<T>();
+	public PositionComponent() { }
+
+	public sbyte SBYTE;
+	public byte BYTE;
+	public short SHORT;
+	public ushort USHORT;
+	public int INT;
+	public uint UINT;
+	public long LONG;
+	public ulong ULONG;
+	public float FLOAT;
+	public double DOUBLE;
+	public decimal DECIMAL;
+	public Vector2 VECTOR2;
+	public Vector3 VECTOR3;
+	public Vector4 VECTOR4;
+	public Quaternion QUATERNION;
+	public Color COLOR;
+	public Rect RECT;
+	public Bounds BOUNDS;
+	public string STRING;
+	public char CHAR;
+	public AnimationCurve ANIMATIONCURVE;
+	public CustomData DATA;
+	public GameObject GAMEOBJECT;
+	public AudioClipLoadType ENUM;
 }
 
-public class Dummy
+[Serializable]
+public class SomeComponent1 : ComponentBase { }
+[Serializable, RequireComponent(typeof(SomeComponent1))]
+public class SomeComponent2 : ComponentBase
 {
+	public float F;
+	public UnityEngine.Object Obj;
+}
+[Serializable, ComponentCategory("Special")]
+public class SomeComponent3 : ComponentBase
+{
+	public Vector3 V;
+}
 
+public sealed class ComponentCategoryAttribute : Attribute
+{
+	public readonly string Category;
+
+	public ComponentCategoryAttribute(string category)
+	{
+		Category = category;
+	}
+}
+
+[Serializable]
+public class CustomData
+{
+	public float SomeThin;
+	public string Str;
 }
