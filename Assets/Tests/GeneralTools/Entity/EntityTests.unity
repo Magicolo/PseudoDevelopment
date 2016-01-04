@@ -127,57 +127,20 @@ MonoBehaviour:
   Entity: {fileID: 11423954, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
   Match:
     groups:
-      flag1: 0
-      flag2: 0
-      flag3: 0
-      flag4: 0
+      groups:
+        f1: 0
+        f2: 0
+        f3: 0
+        f4: 0
+        f5: 0
+        f6: 0
+        f7: 0
+        f8: 0
     match: 0
-  hasPositionComponentTest: 0
-  findMatchingEntities: 0
-  poolEntity: 0
---- !u!1001 &917213346
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 447050, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 119836, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-      propertyPath: m_Name
-      value: EntityINSTANCE
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
-  m_IsPrefabParent: 0
+  hasDataComponentTest: 0
+  findMatchingEntitiesTest: 0
+  sendMessageTest: 0
+  instantiateEntityTest: 0
+  poolEntityTest: 0
+  assembleEntityTest: 0
+  assemblePooledEntityTest: 0

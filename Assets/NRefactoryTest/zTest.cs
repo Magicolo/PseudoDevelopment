@@ -10,39 +10,27 @@ using System.Reflection;
 using Pseudo.Internal.Audio;
 using System.Runtime.Serialization;
 using Pseudo.Internal;
+using Pseudo.Internal.Tests;
 
 public class zTest : PMonoBehaviour
 {
-	const int iterations = 1000;
-	Data D = new Data();
+	public AnimationCurve Original;
+	public AnimationCurve Copy;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
-		//this.SetValueToFieldAtPath("D.Vs.0.x", PRandom.Range(0f, 1000f));
-		//this.SetValueToFieldAtPath("D.Vs.1", new Vector2(PRandom.Range(0f, 1000f), 42f));
-		//PDebug.Log(this.GetValueFromFieldAtPath("D.Vs.0.x"));
-		//PDebug.Log(this.GetValueFromFieldAtPath("D.Vs.1"));
-		//PDebug.LogTest("Reflection Get", () => this.GetValueFromFieldAtPath("D.Vs.0.x"), 1000);
-		//PDebug.LogTest("Reflection Set", () => this.SetValueToFieldAtPath("D.Vs.0.x", 100f), 1000);
 	}
-}
 
-[Serializable]
-public class Data
-{
-	public object[] Vs =
+	void Update()
 	{
-		new FloatHolder(),
-		Vector2.right
-	};
-
-	public GameObject GO;
-	public GameObject[] GOs;
-}
-
-public class FloatHolder
-{
-	public float x;
+		if (Original.length != Copy.length)
+			Copy.keys = Original.keys;
+		else
+		{
+			for (int i = 0; i < Original.length; i++)
+				Copy.MoveKey(i, Original[i]);
+		}
+	}
 }

@@ -40,28 +40,52 @@ namespace Pseudo.Internal.Tests
 		public char CHAR;
 		public AnimationCurve ANIMATIONCURVE;
 		public AudioClipLoadType ENUM;
+		public EntityMatch MATCH;
+	}
+
+	[Serializable, EntityRequires(typeof(DataComponent))]
+	public class SmallComponent : ComponentBase
+	{
+		[Min]
+		public int INT;
+		public EntityMatch MATCH;
+		[Min]
+		public int[] INTS;
+		public EntityMatch[] MATCHES;
+		public EntityGroups Group;
+
+		void Spawn()
+		{
+			PDebug.LogMethod(GetHashCode());
+		}
 	}
 
 	[Serializable, ComponentCategory("Reference"), EntityRequires(typeof(DataComponent))]
-	public class ReferenceComponent : ComponentBase
+	public class ReferencezComponent : ComponentBase, IUpdateable
 	{
 		[InitializeValue]
-		public GameObject GAMEOBJECTS;
+		public GameObject GAMEOBJECT;
 		public string TRANSFORM;
 		[InitializeValue]
 		public PEntity[] ENTITY;
-		public Data REFERENCE;
-		[InitializeValue]
-		public Data[] REFERENCES;
+
+		float IUpdateable.UpdateRate { get { return 0f; } }
+
+		void IUpdateable.Update()
+		{
+
+		}
 	}
 
 	[Serializable, EntityRequires(typeof(TimeComponent)), ComponentCategory("Motion")]
 	public class MotionComponent : ComponentBase, IFixedUpdateable
 	{
+		public IEntityGroup PlayerGroup = EntityManager.GetEntityGroup(EntityGroups.Character_All).Filter(typeof(ReferencezComponent));
 		public Rigidbody2D Rigidbody;
+		[Polar]
 		public Vector2 Direction;
 
-		public void FixedUpdate()
+		void IFixedUpdateable.FixedUpdate()
 		{
 			Rigidbody.Translate(Direction * Entity.GetComponent<TimeComponent>().DeltaTime);
 		}
