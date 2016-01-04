@@ -14,7 +14,7 @@ using ICSharpCode.NRefactory.Ast;
 using ICSharpCode.NRefactory.Visitors;
 using ICSharpCode.NRefactory.PrettyPrinter;
 
-[CustomEditor(typeof(zTest))]
+//[CustomEditor(typeof(zTest))]
 public class zTestEditor : CustomEditorBase
 {
 	public override void OnInspectorGUI()
