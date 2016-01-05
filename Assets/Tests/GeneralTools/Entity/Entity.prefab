@@ -87,21 +87,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groups:
-    groups:
-      f1: 0
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
+    f1: 2
+    f2: 0
+    f3: 0
+    f4: 0
+    f5: 0
+    f6: 0
+    f7: 0
+    f8: 0
   references:
   - Index: 2
     Path: Rigidbody
     Reference: {fileID: 5003532}
-  data: "4\r\nPseudo.Internal.Tests.DataComponent\r\n{\"active\":true,\"SBYTE\":30,\"BYTE\":13,\"SHORT\":5,\"USHORT\":9,\"INT\":17,\"UINT\":0,\"LONG\":0,\"ULONG\":0,\"FLOAT\":0.0,\"DOUBLE\":0.0,\"VECTOR2\":{\"x\":0.0,\"y\":0.0},\"VECTOR3\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"VECTOR4\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"QUATERNION\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"COLOR\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":0.0},\"RECT\":{\"serializedVersion\":\"2\",\"x\":0.0,\"y\":0.0,\"width\":0.0,\"height\":0.0},\"BOUNDS\":{\"m_Center\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"m_Extent\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"STRING\":\"\",\"CHAR\":0,\"ANIMATIONCURVE\":{\"serializedVersion\":\"2\",\"m_Curve\":[{\"time\":0.0,\"value\":0.0,\"inSlope\":2.0,\"outSlope\":2.0,\"tangentMode\":0},{\"time\":0.6447243690490723,\"value\":0.08317917585372925,\"inSlope\":1.1429190635681153,\"outSlope\":1.1429190635681153,\"tangentMode\":0},{\"time\":1.0,\"value\":1.0,\"inSlope\":0.0,\"outSlope\":0.0,\"tangentMode\":0}],\"m_PreInfinity\":2,\"m_PostInfinity\":2,\"m_RotationOrder\":0},\"ENUM\":0,\"MATCH\":{\"groups\":{\"groups\":{\"f1\":0,\"f2\":0,\"f3\":0,\"f4\":0,\"f5\":0,\"f6\":0,\"f7\":0,\"f8\":0}},\"match\":0}}\r\nPseudo.Internal.Tests.SmallComponent\r\n{\"active\":true,\"INT\":0,\"MATCH\":{\"groups\":{\"groups\":{\"f1\":0,\"f2\":0,\"f3\":0,\"f4\":0,\"f5\":0,\"f6\":0,\"f7\":0,\"f8\":0}},\"match\":0},\"INTS\":[],\"MATCHES\":[],\"Group\":{\"groups\":{\"f1\":0,\"f2\":0,\"f3\":0,\"f4\":0,\"f5\":0,\"f6\":0,\"f7\":0,\"f8\":0}}}\r\nPseudo.Internal.Tests.MotionComponent\r\n{\"active\":true,\"Rigidbody\":{\"instanceID\":0},\"Direction\":{\"x\":0.0,\"y\":0.0}}\r\nPseudo.TimeComponent\r\n{\"active\":true,\"channel\":0,\"timeScale\":1.0}\r\n"
-  isDeserialized: 0
+  data: "4\r\nPseudo.Internal.Tests.DataComponent\r\n{\"active\":true,\"SBYTE\":30,\"BYTE\":13,\"SHORT\":5,\"USHORT\":9,\"INT\":17,\"UINT\":0,\"LONG\":0,\"ULONG\":0,\"FLOAT\":0.0,\"DOUBLE\":0.0,\"VECTOR2\":{\"x\":0.0,\"y\":0.0},\"VECTOR3\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"VECTOR4\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"QUATERNION\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":0.0},\"COLOR\":{\"r\":0.0,\"g\":0.0,\"b\":0.0,\"a\":0.0},\"RECT\":{\"serializedVersion\":\"2\",\"x\":0.0,\"y\":0.0,\"width\":0.0,\"height\":0.0},\"BOUNDS\":{\"m_Center\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"m_Extent\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}},\"STRING\":\"\",\"CHAR\":0,\"ANIMATIONCURVE\":{\"serializedVersion\":\"2\",\"m_Curve\":[{\"time\":0.0,\"value\":0.0,\"inSlope\":2.0,\"outSlope\":2.0,\"tangentMode\":0},{\"time\":0.6447243690490723,\"value\":0.08317917585372925,\"inSlope\":1.1429190635681153,\"outSlope\":1.1429190635681153,\"tangentMode\":0},{\"time\":1.0,\"value\":1.0,\"inSlope\":0.0,\"outSlope\":0.0,\"tangentMode\":0}],\"m_PreInfinity\":2,\"m_PostInfinity\":2,\"m_RotationOrder\":0},\"ENUM\":0,\"MATCH\":{\"groups\":{\"f1\":0,\"f2\":0,\"f3\":0,\"f4\":0,\"f5\":0,\"f6\":0,\"f7\":0,\"f8\":0},\"match\":0}}\r\nPseudo.Internal.Tests.SmallComponent\r\n{\"active\":true,\"INT\":0,\"MATCH\":{\"groups\":{\"f1\":0,\"f2\":0,\"f3\":0,\"f4\":0,\"f5\":0,\"f6\":0,\"f7\":0,\"f8\":0},\"match\":0},\"INTS\":[],\"MATCHES\":[],\"Group\":{\"f1\":0,\"f2\":0,\"f3\":0,\"f4\":0,\"f5\":0,\"f6\":0,\"f7\":0,\"f8\":0}}\r\nPseudo.Internal.Tests.MotionComponent\r\n{\"active\":true,\"Rigidbody\":{\"instanceID\":0},\"Direction\":{\"x\":0.0,\"y\":0.0}}\r\nPseudo.TimeComponent\r\n{\"active\":true,\"channel\":0,\"timeScale\":1.0}\r\n"
+  isDeserialized: 1
 --- !u!212 &21229346
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -294,6 +293,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: groups.groups.flag4
       value: 768
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: groups.f1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -127,16 +127,15 @@ MonoBehaviour:
   Entity: {fileID: 11423954, guid: 2567f60b30fab01469128dbe95fd5d79, type: 2}
   Match:
     groups:
-      groups:
-        f1: 0
-        f2: 0
-        f3: 0
-        f4: 0
-        f5: 0
-        f6: 0
-        f7: 0
-        f8: 0
-    match: 0
+      f1: 30
+      f2: 0
+      f3: 0
+      f4: 0
+      f5: 0
+      f6: 0
+      f7: 0
+      f8: 0
+    match: 1
   hasDataComponentTest: 0
   findMatchingEntitiesTest: 0
   sendMessageTest: 0
