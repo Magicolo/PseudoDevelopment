@@ -2376,7 +2376,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1733
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.60784316, g: 0.60784316, b: 0.60784316, a: 0.60784316}
   m_FlipX: 0
@@ -2932,9 +2932,12 @@ MonoBehaviour:
   Layers: []
   UISkin: {fileID: 1263433707}
   Grid: {fileID: 2092499034}
-  menu: {fileID: 2040620242}
+  NextTileFlipX: 0
+  NextTileFlipY: 0
+  NextTileRotation: 0
+  Menu: {fileID: 2040620242}
   Toolbar: {fileID: 738468913}
-  tilesetPanel: {fileID: 2139341787}
+  TilesetPanel: {fileID: 2139341787}
 --- !u!4 &1599124421
 Transform:
   m_ObjectHideFlags: 0
