@@ -52,7 +52,8 @@ namespace Pseudo.Internal.Tests
 		[Min]
 		public int[] INTS;
 		public EntityMatch[] MATCHES;
-		public EntityGroups Group;
+		[EntityGroups]
+		public ByteFlag Group;
 
 		void Spawn()
 		{
@@ -80,7 +81,7 @@ namespace Pseudo.Internal.Tests
 	[Serializable, EntityRequires(typeof(TimeComponent)), ComponentCategory("Motion")]
 	public class MotionComponent : ComponentBase, IFixedUpdateable
 	{
-		public IEntityGroup PlayerGroup = EntityManager.GetEntityGroup(EntityGroups.Character_All).Filter(typeof(ReferencezComponent));
+		public IEntityGroup PlayerGroup = EntityManager.GetEntityGroup(EntityGroups.Character_Player).Filter(typeof(ReferencezComponent));
 		public Rigidbody2D Rigidbody;
 		[Polar]
 		public Vector2 Direction;

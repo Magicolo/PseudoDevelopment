@@ -99,26 +99,13 @@ namespace Pseudo.Internal.Tests
 		}
 	}
 
-	[Serializable]
-	public class EntityGroups : EntityGroupDefinition
+	[EntityGroups]
+	public static class EntityGroups
 	{
-		public static readonly EntityGroups Character_All = new EntityGroups(0, 1);
-		public static readonly EntityGroups Character_Player = new EntityGroups(0);
-		public static readonly EntityGroups Character_Enemy = new EntityGroups(1);
-
-		public static readonly EntityGroups Item_All = new EntityGroups(100, 101, 200, 201);
-		public static readonly EntityGroups Item_Weapon_Sword = new EntityGroups(100);
-		public static readonly EntityGroups Item_Weapon_Mace = new EntityGroups(101);
-		public static readonly EntityGroups Item_Armor_Gold = new EntityGroups(200);
-		public static readonly EntityGroups Item_Armor_Adamantium = new EntityGroups(201);
-
-		public EntityGroups(params byte[] groupIds) : base(groupIds) { }
-	}
-
-	public class ComponentGroups : ComponentGroupDefinition
-	{
-		public static readonly ComponentGroups Moveable = new ComponentGroups(typeof(MotionComponent));
-
-		public ComponentGroups(params Type[] componentTypes) : base(componentTypes) { }
+		public static readonly ByteFlag Character_Player = new ByteFlag(1);
+		public static readonly ByteFlag Character_Enemy = new ByteFlag(2);
+		public static readonly ByteFlag Item_Weapon_All = new ByteFlag(3, 4);
+		public static readonly ByteFlag Item_Weapon_Axe = new ByteFlag(3);
+		public static readonly ByteFlag Item_Weapon_Mace = new ByteFlag(4);
 	}
 }
