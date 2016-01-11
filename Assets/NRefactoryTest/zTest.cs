@@ -10,6 +10,7 @@ using System.Reflection;
 using Pseudo.Internal.Audio;
 using System.Runtime.Serialization;
 using Pseudo.Internal;
+using UnityEngine.SceneManagement;
 
 public class zTest : PMonoBehaviour
 {
@@ -19,5 +20,6 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
+		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex == 0 ? 1 : 0);
 	}
 }
