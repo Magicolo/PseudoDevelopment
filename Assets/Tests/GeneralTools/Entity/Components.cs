@@ -78,7 +78,7 @@ namespace Pseudo.Internal.Tests
 		}
 	}
 
-	[Serializable, EntityRequires(typeof(TimeComponent)), ComponentCategory("Motion")]
+	[Serializable, EntityRequires(typeof(TimeChannel)), ComponentCategory("Motion")]
 	public class MotionComponent : ComponentBase, IFixedUpdateable
 	{
 		public IEntityGroup PlayerGroup = EntityManager.GetEntityGroup(EntityGroups.Character_Player).Filter(typeof(ReferencezComponent));
@@ -88,7 +88,7 @@ namespace Pseudo.Internal.Tests
 
 		void IFixedUpdateable.FixedUpdate()
 		{
-			Rigidbody.Translate(Direction * Entity.GetComponent<TimeComponent>().DeltaTime);
+			Rigidbody.Translate(Direction * Entity.GetComponent<TimeChannel>().DeltaTime);
 		}
 	}
 }

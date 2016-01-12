@@ -56,7 +56,6 @@ namespace Pseudo.Internal.Tests
 		{
 			var entity = new GameObject("Assembled Entity").AddComponent<PEntity>();
 			entity.AddComponent<DataComponent>().BYTE = 32;
-			entity.AddComponent<TimeComponent>().Channel = TimeManager.TimeChannels.UI;
 
 			StartCoroutine(DelayedAction(() => entity.GameObject.Destroy(), 3f));
 		}
@@ -67,7 +66,6 @@ namespace Pseudo.Internal.Tests
 		{
 			var entity = TypePoolManager.Create<PEntity>();
 			entity.AddComponent<DataComponent>().BYTE = 66;
-			entity.AddComponent<TimeComponent>().Channel = TimeManager.TimeChannels.Enemy;
 
 			StartCoroutine(DelayedAction(() => TypePoolManager.Recycle(entity), 3f));
 		}
