@@ -40,7 +40,7 @@ namespace Pseudo.Internal.Tests
 		public char CHAR;
 		public AnimationCurve ANIMATIONCURVE;
 		public AudioClipLoadType ENUM;
-		public EntityMatch MATCH;
+		public EntityMatchOld MATCH;
 	}
 
 	[Serializable, EntityRequires(typeof(DataComponent))]
@@ -48,10 +48,10 @@ namespace Pseudo.Internal.Tests
 	{
 		[Min]
 		public int INT;
-		public EntityMatch MATCH;
+		public EntityMatchOld MATCH;
 		[Min]
 		public int[] INTS;
-		public EntityMatch[] MATCHES;
+		public EntityMatchOld[] MATCHES;
 		[EntityGroups]
 		public ByteFlag Group;
 
@@ -70,7 +70,7 @@ namespace Pseudo.Internal.Tests
 		[InitializeValue]
 		public PEntity[] ENTITY;
 
-		float IUpdateable.UpdateRate { get { return 0f; } }
+		float IUpdateable.UpdateDelay { get { return 0f; } }
 
 		void IUpdateable.Update()
 		{
@@ -81,7 +81,7 @@ namespace Pseudo.Internal.Tests
 	[Serializable, EntityRequires(typeof(TimeChannel)), ComponentCategory("Motion")]
 	public class MotionComponent : ComponentBase, IFixedUpdateable
 	{
-		public IEntityGroup PlayerGroup = EntityManager.GetEntityGroup(EntityGroups.Character_Player).Filter(typeof(ReferencezComponent));
+		public IEntityGroupOld PlayerGroup = EntityManagerOld.GetEntityGroup(EntityGroups.Character_Player).Filter(typeof(ReferencezComponent));
 		public Rigidbody2D Rigidbody;
 		[Polar]
 		public Vector2 Direction;

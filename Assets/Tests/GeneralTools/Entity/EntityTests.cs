@@ -11,7 +11,7 @@ namespace Pseudo.Internal.Tests
 	{
 		[EntityRequires(typeof(DataComponent))]
 		public PEntity Entity;
-		public EntityMatch Match;
+		public EntityMatchOld Match;
 
 		[Button]
 		public bool hasDataComponentTest;
@@ -24,7 +24,7 @@ namespace Pseudo.Internal.Tests
 		public bool findMatchingEntitiesTest;
 		void FindMatchingEntitiesTest()
 		{
-			PDebug.Log(EntityManager.GetEntityGroup(Match).Entities);
+			PDebug.Log(EntityManagerOld.GetEntityGroup(Match).Entities);
 		}
 
 		[Button]

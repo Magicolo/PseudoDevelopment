@@ -11,40 +11,61 @@ using Pseudo.Internal.Audio;
 using System.Runtime.Serialization;
 using Pseudo.Internal;
 using UnityEngine.SceneManagement;
-using Pseudo.Internal.Entity3;
+using Pseudo.Internal.Entity;
+using Zenject;
+
+// TODO EventManager should resolve events at end of frame
+// TODO EventManager should allow to listen to all events with an argument (IEntity)
 
 public class zTest : PMonoBehaviour
 {
+	public SomeEnum EnumFlag;
+	public Events Enum;
 	public PEntity Entity2;
-	SystemManager systemManager = new SystemManager();
-	IEntityManager entityManager = Pseudo.Internal.Entity3.EntityManager.Instance;
+	[Inject]
+	ISystemManager systemManager = null;
+	const int iterations = 1000;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
+
 	}
 
 	void Awake()
 	{
-		var motionSystem = new MotionSystem(systemManager, entityManager);
-		systemManager.AddSystem(motionSystem);
+		systemManager.AddSystem<MotionSystem>();
+		systemManager.AddSystem<InputMotionSystem>();
 	}
 
 	void Update()
 	{
-		systemManager.Update();
 	}
+}
 
-	void FixedUpdate()
-	{
-		systemManager.FixedUpdate();
-	}
+public partial class SomeEnum
+{
+	public static readonly SomeEnum Option_4 = new SomeEnum(7);
+}
 
-	void LateUpdate()
-	{
-		systemManager.LateUpdate();
-	}
+[Serializable]
+public partial class SomeEnum : PEnumFlag<SomeEnum>
+{
+	public static readonly SomeEnum Option_1 = new SomeEnum(1, 2, 3);
+	public static readonly SomeEnum Option_2 = new SomeEnum(4, 5);
+	public static readonly SomeEnum Option_3 = new SomeEnum(6);
+
+	protected SomeEnum(params byte[] values) : base(values) { }
+}
+
+[Serializable]
+public class Events : PEnum<Events, int>
+{
+	public static readonly Events On_Move = new Events(1);
+	public static readonly Events On_Damage = new Events(2);
+
+	protected Events(int value) : base(value) { }
 }
 
 public class MotionSystem : SystemBase, IUpdateable
@@ -54,29 +75,73 @@ public class MotionSystem : SystemBase, IUpdateable
 		get { return active; }
 		set { active = value; }
 	}
-	public float UpdateRate { get { return 0f; } }
+	public float UpdateDelay { get { return 0f; } }
 
 	bool active = true;
-	Pseudo.Internal.Entity3.IEntityGroup moveableGroup;
+	IEntityGroup entities;
 
-	public MotionSystem(ISystemManager systemManager, IEntityManager entityManager) : base(systemManager, entityManager)
+	protected override void Initialize()
 	{
-		moveableGroup = entityManager.GetEntityGroup(new[] {
-			typeof(ITransformComponent),
-			typeof(IMotionComponent),
-			typeof(ITimeComponent)});
+		base.Initialize();
+
+		entities = EntityManager.Entities.Filter(new[]
+		{
+			typeof(MotionComponent),
+			typeof(TimeComponent)
+		});
+
+		EventManager.Subscribe(Events.On_Move, () => { });
+		EventManager.Subscribe((Events identifier) => { });
 	}
 
 	public void Update()
 	{
-		for (int i = 0; i < moveableGroup.Entities.Count; i++)
+		for (int i = 0; i < entities.Count; i++)
 		{
-			var entity = moveableGroup.Entities[i];
-			var time = entity.GetComponent<ITimeComponent>();
-			var transform = entity.GetComponent<ITransformComponent>().Transform;
-			var motion = entity.GetComponent<IMotionComponent>().Motion;
+			var entity = entities[i];
+			var time = entity.GetComponent<TimeComponent>();
+			var motion = entity.GetComponent<MotionComponent>();
 
-			transform.position += motion.ToVector3() * time.DeltaTime;
+			motion.CachedTransform.position += motion.Motion.ToVector3() * time.DeltaTime;
+
+			//if (time.Time % 5 > 4.5f)
+			EventManager.Trigger(Events.On_Move);
+		}
+	}
+}
+
+public class InputMotionSystem : SystemBase, IUpdateable
+{
+	public bool Active
+	{
+		get { return active; }
+		set { active = value; }
+	}
+	public float UpdateDelay { get { return 0f; } }
+
+	bool active = true;
+	IEntityGroup entities;
+
+	protected override void Initialize()
+	{
+		base.Initialize();
+
+		entities = EntityManager.Entities.Filter(new[]
+		{
+			typeof(TimeComponent),
+			typeof(InputMotionComponent)
+		});
+	}
+
+	public void Update()
+	{
+		for (int i = 0; i < entities.Count; i++)
+		{
+			var entity = entities[i];
+			var time = entity.GetComponent<TimeComponent>();
+			var motion = entity.GetComponent<InputMotionComponent>();
+
+			motion.CachedTransform.Translate(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * time.DeltaTime * motion.Speed, Axes.XY);
 		}
 	}
 }
