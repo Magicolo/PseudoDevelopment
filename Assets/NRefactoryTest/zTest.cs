@@ -14,7 +14,6 @@ using UnityEngine.SceneManagement;
 using Pseudo.Internal.Entity;
 using Zenject;
 
-// TODO EventManager should resolve events at end of frame
 // TODO EventManager should allow to listen to all events with an argument (IEntity)
 
 public class zTest : PMonoBehaviour
@@ -62,8 +61,8 @@ public partial class SomeEnum : PEnumFlag<SomeEnum>
 [Serializable]
 public class Events : PEnum<Events, int>
 {
-	public static readonly Events On_Move = new Events(1);
-	public static readonly Events On_Damage = new Events(2);
+	public static readonly Events OnMove = new Events(1);
+	public static readonly Events OnDamage = new Events(2);
 
 	protected Events(int value) : base(value) { }
 }
@@ -90,8 +89,9 @@ public class MotionSystem : SystemBase, IUpdateable
 			typeof(TimeComponent)
 		});
 
-		EventManager.Subscribe(Events.On_Move, () => { });
-		EventManager.Subscribe((Events identifier) => { });
+		EventManager.Subscribe(Events.OnMove, () => EventManager.Trigger(Events.OnDamage));
+		EventManager.Subscribe(Events.OnDamage, () => EventManager.Trigger(Events.OnMove));
+		EventManager.Trigger(Events.OnMove);
 	}
 
 	public void Update()
@@ -103,9 +103,6 @@ public class MotionSystem : SystemBase, IUpdateable
 			var motion = entity.GetComponent<MotionComponent>();
 
 			motion.CachedTransform.position += motion.Motion.ToVector3() * time.DeltaTime;
-
-			//if (time.Time % 5 > 4.5f)
-			EventManager.Trigger(Events.On_Move);
 		}
 	}
 }

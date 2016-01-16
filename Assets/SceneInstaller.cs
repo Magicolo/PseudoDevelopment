@@ -6,6 +6,7 @@ using System.Linq;
 using Pseudo;
 using Zenject;
 using Pseudo.Internal.Entity;
+using ModestTree.Util;
 
 public class SceneInstaller : MonoInstaller
 {
@@ -16,9 +17,9 @@ public class SceneInstaller : MonoInstaller
 
 	void BindManagers()
 	{
-		Container.BindAllInterfacesToSingle<SystemManager>();
 		Container.Bind<IEntityManager>().ToSingle<EntityManager>();
-		Container.BindIFactory<ByteFlag, IEntity>().ToFactory<Entity>();
-		Container.Bind<IEventManager>().ToSingle<EventManager>();
+		Container.BindAllInterfacesToSingle<SystemManager>();
+		Container.BindAllInterfacesToSingle<EventManager>();
+		Container.BindLateTickablePriority<EventManager>(100);
 	}
 }
