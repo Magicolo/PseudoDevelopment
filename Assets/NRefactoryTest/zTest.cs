@@ -14,57 +14,40 @@ using UnityEngine.SceneManagement;
 using Pseudo.Internal.Entity;
 using Zenject;
 
-// TODO EventManager should allow to listen to all events with an argument (IEntity)
-
 public class zTest : PMonoBehaviour
 {
-	public SomeEnum EnumFlag;
-	public Events Enum;
-	public PEntity Entity2;
 	[Inject]
 	ISystemManager systemManager = null;
-	const int iterations = 1000;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
-
+		//SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % 2);
 	}
 
 	void Awake()
 	{
 		systemManager.AddSystem<MotionSystem>();
 		systemManager.AddSystem<InputMotionSystem>();
+		systemManager.AddSystem<SoundSystem>();
 	}
+}
 
-	void Update()
+[Serializable]
+public partial class Events : PEnumFlag<Events>
+{
+	public static readonly Events OnAll = new Events(1, 2, 3);
+	public static readonly Events OnEquip = new Events(1);
+	public static readonly Events OnUnequip = new Events(2);
+	public static readonly Events OnBuy = new Events(3);
+
+	protected Events(params byte[] values) : base(values) { }
+
+	public override bool Equals(Events other)
 	{
+		return HasAny(other);
 	}
-}
-
-public partial class SomeEnum
-{
-	public static readonly SomeEnum Option_4 = new SomeEnum(7);
-}
-
-[Serializable]
-public partial class SomeEnum : PEnumFlag<SomeEnum>
-{
-	public static readonly SomeEnum Option_1 = new SomeEnum(1, 2, 3);
-	public static readonly SomeEnum Option_2 = new SomeEnum(4, 5);
-	public static readonly SomeEnum Option_3 = new SomeEnum(6);
-
-	protected SomeEnum(params byte[] values) : base(values) { }
-}
-
-[Serializable]
-public class Events : PEnum<Events, int>
-{
-	public static readonly Events OnMove = new Events(1);
-	public static readonly Events OnDamage = new Events(2);
-
-	protected Events(int value) : base(value) { }
 }
 
 public class MotionSystem : SystemBase, IUpdateable
@@ -88,10 +71,6 @@ public class MotionSystem : SystemBase, IUpdateable
 			typeof(MotionComponent),
 			typeof(TimeComponent)
 		});
-
-		EventManager.Subscribe(Events.OnMove, () => EventManager.Trigger(Events.OnDamage));
-		EventManager.Subscribe(Events.OnDamage, () => EventManager.Trigger(Events.OnMove));
-		EventManager.Trigger(Events.OnMove);
 	}
 
 	public void Update()
@@ -103,6 +82,9 @@ public class MotionSystem : SystemBase, IUpdateable
 			var motion = entity.GetComponent<MotionComponent>();
 
 			motion.CachedTransform.position += motion.Motion.ToVector3() * time.DeltaTime;
+
+			if (time.Time % 3 > 2.9f)
+				EventManager.Trigger(Events.OnEquip, entity);
 		}
 	}
 }
@@ -139,6 +121,59 @@ public class InputMotionSystem : SystemBase, IUpdateable
 			var motion = entity.GetComponent<InputMotionComponent>();
 
 			motion.CachedTransform.Translate(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * time.DeltaTime * motion.Speed, Axes.XY);
+		}
+	}
+}
+
+public class SoundSystem : SystemBase
+{
+	protected override void Initialize()
+	{
+		base.Initialize();
+
+		EventManager.Subscribe(Events.OnAll, (Action<IEntity>)OnEvent);
+	}
+
+	void OnEvent(IEntity entity)
+	{
+		if (entity == null)
+			return;
+
+		SoundComponent sound;
+
+		if (entity.TryGetComponent(out sound))
+			AudioManager.CreateItem(sound.Sound, sound.CachedTransform.position).Play();
+	}
+}
+
+public class EventRelaySystem : SystemBase
+{
+	IEntityGroup entities;
+
+	protected override void Initialize()
+	{
+		base.Initialize();
+
+		EventManager.SubscribeAll((Action<Events>)OnEntityEvent);
+
+		entities = EntityManager.Entities.Filter(new[]
+		{
+			typeof(EventRelayerComponent),
+		});
+	}
+
+	void OnEntityEvent(Events entityEvent)
+	{
+		for (int i = 0; i < entities.Count; i++)
+		{
+			var entity = entities[i];
+			var eventRelayer = entity.GetComponent<EventRelayerComponent>();
+
+			if (eventRelayer.EventsToRelay.HasAll(entityEvent))
+			{
+				foreach (var relayTo in eventRelayer.RelayTo)
+					EventManager.Trigger(entityEvent, relayTo.Entity);
+			}
 		}
 	}
 }

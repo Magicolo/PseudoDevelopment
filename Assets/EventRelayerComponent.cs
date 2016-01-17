@@ -6,8 +6,8 @@ using System.Linq;
 using Pseudo;
 using Pseudo.Internal.Entity;
 
-public class SoundComponent : PMonoBehaviour, IComponent
+public class EventRelayerComponent : PMonoBehaviour, IComponent
 {
-	public Events PlayEvent;
-	public AudioSettingsBase Sound;
+	public Events EventsToRelay;
+	public EntityBehaviour[] RelayTo;
 }

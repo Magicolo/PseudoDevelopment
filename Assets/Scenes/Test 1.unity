@@ -148,7 +148,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 864135843}
   - 114: {fileID: 864135844}
-  - 81: {fileID: 864135842}
   m_Layer: 0
   m_Name: zTest
   m_TagString: Boba
@@ -156,13 +155,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &864135842
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 864135841}
-  m_Enabled: 1
 --- !u!4 &864135843
 Transform:
   m_ObjectHideFlags: 0
@@ -257,7 +249,6 @@ GameObject:
   - 114: {fileID: 2061220929}
   - 114: {fileID: 2061220934}
   - 114: {fileID: 2061220931}
-  - 114: {fileID: 2061220930}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -279,28 +270,6 @@ MonoBehaviour:
   time:
     channel: 3
     timeScale: 1
---- !u!114 &2061220930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2061220928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f61f16ca5d5cd148951ed47806f1286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayEvent:
-    value:
-      f1: 2
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
-  Sound: {fileID: 11400000, guid: 036f1ce03b792e941a80009c3044f987, type: 2}
 --- !u!114 &2061220931
 MonoBehaviour:
   m_ObjectHideFlags: 0
