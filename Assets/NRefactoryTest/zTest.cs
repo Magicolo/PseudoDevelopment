@@ -45,7 +45,6 @@ public class zTest : PMonoBehaviour
 
 	void Update()
 	{
-		//for (int i = 0; i < 100; i++)
 		entityManager.CreateEntity(Entity);
 	}
 }
@@ -53,7 +52,7 @@ public class zTest : PMonoBehaviour
 [Serializable]
 public class Events : PEnumFlag<Events>
 {
-	public static readonly Events OnAll = new Events(1, 2, 3);
+	public static readonly Events OnAll = new Events(1, 2, 3, 4);
 	public static readonly Events OnEquip = new Events(1);
 	public static readonly Events OnUnequip = new Events(2);
 	public static readonly Events OnBuy = new Events(3);
@@ -69,16 +68,12 @@ public class Events : PEnumFlag<Events>
 
 public class MotionSystem : SystemBase, IUpdateable
 {
-	public bool Active { get; set; }
-	public float UpdateDelay { get { return 0f; } }
-
 	IEntityGroup entities;
 
 	protected override void Initialize()
 	{
 		base.Initialize();
 
-		Active = true;
 		entities = EntityManager.Entities.Filter(new[]
 		{
 			typeof(MotionComponent),
@@ -104,16 +99,12 @@ public class MotionSystem : SystemBase, IUpdateable
 
 public class InputMotionSystem : SystemBase, IUpdateable
 {
-	public bool Active { get; set; }
-	public float UpdateDelay { get { return 0f; } }
-
 	IEntityGroup entities;
 
 	protected override void Initialize()
 	{
 		base.Initialize();
 
-		Active = true;
 		entities = EntityManager.Entities.Filter(new[]
 		{
 			typeof(TimeComponent),
@@ -187,20 +178,12 @@ public class EventRelaySystem : SystemBase
 
 public class LifeTimeSystem : SystemBase, IUpdateable
 {
-	public bool Active { get; set; }
-
-	public float UpdateDelay
-	{
-		get { return 0f; }
-	}
-
 	IEntityGroup entities;
 
 	protected override void Initialize()
 	{
 		base.Initialize();
 
-		Active = true;
 		entities = EntityManager.Entities.Filter(new[]
 		{
 			typeof(LifeTimeComponent),
@@ -244,6 +227,6 @@ public class RecycleSystem : SystemBase
 		var recycle = entity.GetComponent<RecycleOnEventComponent>();
 
 		if (recycle.RecycleEvents.HasAll(identifier))
-			recycle.ToRecycle.Recycle();
+			EntityManager.RecycleEntity(recycle.ToRecycle);
 	}
 }

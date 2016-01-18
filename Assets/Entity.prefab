@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb53b5851f294e54796976ff893f392a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: 1
+  LifeTime: 3
 --- !u!114 &11472310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,7 +248,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: LifeTime
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
