@@ -8,5 +8,6 @@ using Pseudo.Internal.Entity;
 
 public class RecycleOnEventComponent : PMonoBehaviour, IComponent
 {
+	public EntityBehaviour ToRecycle;
 	public Events RecycleEvents;
 }

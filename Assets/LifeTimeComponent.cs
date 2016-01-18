@@ -10,5 +10,11 @@ using Pseudo.Internal.Entity;
 public class LifeTimeComponent : PMonoBehaviour, IComponent
 {
 	public float LifeTime = 2f;
-	public float LifeCounter { get; set; }
+	public float LifeCounter
+	{
+		get { return lifeCounter; }
+		set { lifeCounter = value; }
+	}
+
+	float lifeCounter;
 }
