@@ -7,6 +7,7 @@ using Pseudo;
 using Zenject;
 using Pseudo.Internal.Entity;
 using ModestTree.Util;
+using Pseudo.Internal.Pool;
 
 public class SceneInstaller : MonoInstaller
 {
@@ -17,7 +18,7 @@ public class SceneInstaller : MonoInstaller
 
 	void BindManagers()
 	{
-		Container.Bind<IEntityManager>().ToSingle<EntityManager>();
+		Container.BindAllInterfacesToSingle<EntityManager>();
 		Container.BindAllInterfacesToSingle<SystemManager>();
 		Container.BindAllInterfacesToSingle<EventManager>();
 		Container.BindLateTickablePriority<EventManager>(100);

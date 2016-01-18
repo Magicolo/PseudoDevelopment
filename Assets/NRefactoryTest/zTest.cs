@@ -14,6 +14,7 @@ using UnityEngine.SceneManagement;
 using Pseudo.Internal.Entity;
 using Zenject;
 
+// TODO EntityBehaviour and Entity should be able to be pooled
 public class zTest : PMonoBehaviour
 {
 	[Inject]
@@ -175,5 +176,28 @@ public class EventRelaySystem : SystemBase
 					EventManager.Trigger(entityEvent, relayTo.Entity);
 			}
 		}
+	}
+}
+
+public class RecycleSystem : SystemBase
+{
+	IEntityGroup entities;
+
+	protected override void Initialize()
+	{
+		base.Initialize();
+
+		EventManager.Subscribe(Events.OnAll, (Action<IEntity>)OnEvent);
+	}
+
+	void OnEvent(IEntity entity)
+	{
+		if (entity == null)
+			return;
+
+		RecycleOnEventComponent recycle;
+
+		//if (entity.TryGetComponent(out recycle) && recycle.RecycleEvents)
+
 	}
 }
