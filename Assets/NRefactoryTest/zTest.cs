@@ -15,14 +15,11 @@ using Pseudo.Internal.Entity;
 using Zenject;
 using Pseudo.Internal.Pool;
 
-// TimeComponent.Time is not reset when pooled.
 public class zTest : PMonoBehaviour
 {
 	public EntityBehaviour Entity;
 	[Inject]
 	IEntityManager entityManager = null;
-	[Inject]
-	ISystemManager systemManager = null;
 	public const int iterations = 1000;
 
 	[Button]
@@ -31,16 +28,6 @@ public class zTest : PMonoBehaviour
 	{
 		entityManager.CreateEntity(Entity);
 		//SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % 2);
-	}
-
-	void Awake()
-	{
-		systemManager.AddSystem<MotionSystem>();
-		systemManager.AddSystem<InputMotionSystem>();
-		systemManager.AddSystem<SoundSystem>();
-		systemManager.AddSystem<EventRelaySystem>();
-		systemManager.AddSystem<LifeTimeSystem>();
-		systemManager.AddSystem<RecycleSystem>();
 	}
 
 	void Update()

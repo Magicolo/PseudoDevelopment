@@ -95,6 +95,7 @@ GameObject:
   - 4: {fileID: 150142669}
   - 114: {fileID: 150142668}
   - 114: {fileID: 150142670}
+  - 114: {fileID: 150142671}
   m_Layer: 0
   m_Name: CompositionRoot
   m_TagString: Untagged
@@ -139,6 +140,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8a0bd7099a5904499e86f2b973f147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &150142671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150142667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709b392239ef260488e3aa9e79476ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  systems:
+  - MotionSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - InputMotionSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - SoundSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - EventRelaySystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - LifeTimeSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - RecycleSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &864135841
 GameObject:
   m_ObjectHideFlags: 0
