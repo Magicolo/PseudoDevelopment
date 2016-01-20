@@ -6,13 +6,14 @@ using System.Linq;
 using Pseudo;
 using Zenject;
 using UnityEngine.Assertions;
+using Pseudo.Internal.Entity;
 
 public class zTest : PMonoBehaviour
 {
 	public EntityBehaviour Entity;
 	[Inject]
 	IEntityManager entityManager = null;
-	public const int iterations = 1000;
+	public const int iterations = 100000;
 
 	[Button]
 	public bool test;
@@ -24,7 +25,7 @@ public class zTest : PMonoBehaviour
 
 	void Update()
 	{
-		//entityManager.CreateEntity(Entity);
+		entityManager.CreateEntity(Entity);
 	}
 }
 

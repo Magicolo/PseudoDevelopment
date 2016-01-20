@@ -16,7 +16,7 @@ MonoBehaviour:
   FadeInEase: 1
   FadeOut: 0
   FadeOutEase: 2
-  VolumeScale: 1
+  VolumeScale: 0.07
   PitchScaleMode: 0
   PitchScale: 1
   RandomVolume: 0

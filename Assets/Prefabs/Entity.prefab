@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ac73f537ac8884ca7158bd55cbaef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: 5
+  LifeTime: 10
 --- !u!114 &11497128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +256,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: LifeTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Motion.x
@@ -288,6 +288,10 @@ Prefab:
       propertyPath: Events.Array.data[0].Recycle
       value: 
       objectReference: {fileID: 11472310}
+    - target: {fileID: 0}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142880}

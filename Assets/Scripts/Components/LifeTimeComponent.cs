@@ -15,6 +15,10 @@ public class LifeTimeComponent : PMonoBehaviour, IComponent
 		get { return lifeCounter; }
 		set { lifeCounter = value; }
 	}
+	public bool IsAlive
+	{
+		get { return LifeCounter <= LifeTime; }
+	}
 
 	float lifeCounter;
 }
