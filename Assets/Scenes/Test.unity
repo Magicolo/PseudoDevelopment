@@ -152,12 +152,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   systems:
-  - MotionSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Pseudo.AudioOnEventSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - Pseudo.EventRelaySystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Pseudo.RecycleOnEventSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - Pseudo.StateMachineSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  - Pseudo.SwitchStateOnEventSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
   - InputMotionSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - SoundSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - EventRelaySystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - LifeTimeSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - RecycleSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - MotionSystem, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &864135841
 GameObject:
   m_ObjectHideFlags: 0

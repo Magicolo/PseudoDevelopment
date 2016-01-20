@@ -10,12 +10,12 @@ GameObject:
   - 4: {fileID: 442016}
   - 114: {fileID: 11472310}
   - 114: {fileID: 11419952}
-  - 114: {fileID: 11496560}
-  - 114: {fileID: 11439604}
-  - 114: {fileID: 11428354}
-  - 114: {fileID: 11425944}
-  - 114: {fileID: 11451598}
-  - 114: {fileID: 11468802}
+  - 114: {fileID: 11414938}
+  - 114: {fileID: 11497478}
+  - 114: {fileID: 11492744}
+  - 114: {fileID: 11497128}
+  - 114: {fileID: 11476634}
+  - 114: {fileID: 11446694}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -64,6 +64,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 442016}
   m_RootOrder: 0
+--- !u!114 &11414938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8c3404369fff46b1829695033d2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Motion: {x: 1, y: 0}
 --- !u!114 &11419952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,7 +90,7 @@ MonoBehaviour:
   time:
     channel: 3
     timeScale: 1
---- !u!114 &11425944
+--- !u!114 &11446694
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,88 +98,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 142880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc184d5fda187d4e8e9a31d3a5b7af3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8cb07f6a99058e44d8d4f2442833e475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventsToRelay:
-    value:
-      f1: 0
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
-  RelayTo: []
---- !u!114 &11428354
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f61f16ca5d5cd148951ed47806f1286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayEvent:
-    value:
-      f1: 2
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
-  Sound: {fileID: 11400000, guid: 036f1ce03b792e941a80009c3044f987, type: 2}
---- !u!114 &11439604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f290a9e434573c48a6bf565bc0f5bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Motion: {x: 1, y: 0}
---- !u!114 &11451598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d2cc8d2df4f6e94e84e5b32c6e1b103, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ToRecycle: {fileID: 11472310}
-  RecycleEvents:
-    value:
-      f1: 16
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
---- !u!114 &11468802
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb53b5851f294e54796976ff893f392a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LifeTime: 1
+  Events:
+  - Event:
+      value:
+        f1: 2
+        f2: 0
+        f3: 0
+        f4: 0
+        f5: 0
+        f6: 0
+        f7: 0
+        f8: 0
+    Audio: {fileID: 11400000, guid: 036f1ce03b792e941a80009c3044f987, type: 2}
 --- !u!114 &11472310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,7 +134,7 @@ MonoBehaviour:
       f6: 0
       f7: 0
       f8: 0
---- !u!114 &11496560
+--- !u!114 &11476634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -197,7 +142,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 142880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab961ef904f320c4f8d6d1c7d0798d03, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dfdd40741af00d468b5a34a637a7749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialStateIndex: 0
+  States:
+  - {fileID: 11460604, guid: e6c4ab4a50412764fbacb716e84b31b6, type: 2}
+  - {fileID: 11460604, guid: 6ffc0da2265ac8446904f3bed61cd07f, type: 2}
+  - {fileID: 11457698, guid: 3b94de254c5b98a4a9758308beecf73b, type: 2}
+--- !u!114 &11492744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ac73f537ac8884ca7158bd55cbaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 5
+--- !u!114 &11497128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1c632818d34404889501740d1fa761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - Event:
+      value:
+        f1: 16
+        f2: 0
+        f3: 0
+        f4: 0
+        f5: 0
+        f6: 0
+        f7: 0
+        f8: 0
+    Recycle: {fileID: 11472310}
+--- !u!114 &11497478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7eb4453604ac5a47a42c60e8b016ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
@@ -239,6 +235,18 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: States.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Events.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RelayTo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: ToRecycle
       value: 
       objectReference: {fileID: 11472310}
@@ -248,8 +256,38 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: LifeTime
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Motion.x
+      value: 0.6544295
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Motion.y
+      value: 2.9277503
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: States.Array.data[2]
+      value: 
+      objectReference: {fileID: 11457698, guid: 3b94de254c5b98a4a9758308beecf73b,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: Events.Array.data[0].Event.value.f1
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Events.Array.data[0].Audio
+      value: 
+      objectReference: {fileID: 11400000, guid: 036f1ce03b792e941a80009c3044f987,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: InitialStateIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Events.Array.data[0].Recycle
+      value: 
+      objectReference: {fileID: 11472310}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142880}
