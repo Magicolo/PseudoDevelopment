@@ -25,7 +25,7 @@ public class zTest : PMonoBehaviour
 
 	void Update()
 	{
-		entityManager.CreateEntity(Entity);
+		var entity = entityManager.CreateEntity(Entity);
 	}
 }
 
