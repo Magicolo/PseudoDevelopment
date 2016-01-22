@@ -5,33 +5,81 @@ using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
 
-public class MotionSystem : SystemBase, IUpdateable
+namespace Pseudo
 {
-	IEntityGroup entities;
-
-	public override void OnInitialize()
+	public class MotionSystem : SystemBase, IUpdateable
 	{
-		base.OnInitialize();
+		IEntityGroup entities;
 
-		entities = EntityManager.Entities.Filter(new[]
+		public override void OnInitialize()
 		{
-			typeof(MotionComponent),
-			typeof(TimeComponent)
-		});
-	}
+			base.OnInitialize();
 
-	public void Update()
-	{
-		for (int i = 0; i < entities.Count; i++)
+			entities = EntityManager.Entities.Filter(new[]
+			{
+				typeof(TimeComponent),
+				typeof(MotionComponent)
+			});
+		}
+
+		public void Update()
 		{
-			var entity = entities[i];
-			var time = entity.GetComponent<TimeComponent>();
-			var motion = entity.GetComponent<MotionComponent>();
+			for (int i = 0; i < entities.Count; i++)
+			{
+				var entity = entities[i];
+				var time = entity.GetComponent<TimeComponent>();
+				var motion = entity.GetComponent<MotionComponent>();
+				var transform = motion.Agent.CachedTransform;
+				var velocity = Vector3.zero;
 
-			motion.CachedTransform.position += motion.Motion.ToVector3() * time.DeltaTime;
+				UpdateModifiers(entity, ref velocity, transform.position);
 
-			if (time.Time % 3 > 2.9f)
-				EventManager.Trigger(Events.OnEquip, entity);
+				motion.Velocity = motion.Velocity.Lerp(velocity, time.DeltaTime * motion.Acceleration, Axes.XYZ);
+				motion.Velocity = motion.Velocity.ClampMagnitude(motion.Speed.Min * time.DeltaTime, motion.Speed.Max * time.DeltaTime);
+				transform.Translate(motion.Velocity);
+			}
+		}
+
+		void UpdateModifiers(IEntity entity, ref Vector3 velocity, Vector3 position)
+		{
+			var modifiers = entity.GetComponents<MotionModifierComponentBase>();
+
+			for (int i = 0; i < modifiers.Count; i++)
+			{
+				var modifier = modifiers[i];
+
+				if (modifier is SeekMotionModifierComponent)
+					UpdateModifier((SeekMotionModifierComponent)modifier, ref velocity, position);
+				else if (modifier is FearMotionModifierComponent)
+					UpdateModifier((FearMotionModifierComponent)modifier, ref velocity, position);
+			}
+		}
+
+		void UpdateModifier(SeekMotionModifierComponent modifier, ref Vector3 velocity, Vector3 position)
+		{
+			if (!modifier.Target.HasTarget)
+				return;
+
+			var difference = modifier.Target.Target - position;
+			float distance = difference.magnitude;
+
+			if (distance > modifier.PerceptionDistance)
+				return;
+
+			var direction = difference.normalized;
+			float strength = modifier.Strength;
+
+			if (distance <= modifier.SlowDistance)
+				strength *= (distance - modifier.StopDistance) / (modifier.SlowDistance - modifier.StopDistance);
+			else if (distance <= modifier.StopDistance)
+				strength = 0f;
+
+			velocity += direction * strength;
+		}
+
+		void UpdateModifier(FearMotionModifierComponent modifier, ref Vector3 velocity, Vector3 position)
+		{
+
 		}
 	}
 }

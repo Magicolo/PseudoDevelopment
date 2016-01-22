@@ -7,8 +7,9 @@ using Pseudo;
 using Pseudo.Internal.Entity;
 
 [RequireComponent(typeof(TimeComponent))]
-public class LifeTimeComponent : PMonoBehaviour, IComponent
+public class LifeTimeComponent : ComponentBehaviour
 {
+	public Events DieEvent;
 	public float LifeTime = 2f;
 	public float LifeCounter
 	{

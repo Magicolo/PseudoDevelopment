@@ -1,52 +1,101 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &129562
+--- !u!1 &139536
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 462688}
-  - 114: {fileID: 11460604}
-  - 114: {fileID: 11427384}
-  - 114: {fileID: 11492748}
+  - 4: {fileID: 425944}
+  - 114: {fileID: 11496164}
+  - 114: {fileID: 11456620}
+  - 114: {fileID: 11485290}
+  - 114: {fileID: 11455320}
   m_Layer: 0
-  m_Name: State1
+  m_Name: SimpleEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &462688
+--- !u!4 &425944
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129562}
+  m_GameObject: {fileID: 139536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11427384
+--- !u!114 &11455320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129562}
+  m_GameObject: {fileID: 139536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d977a2c7777b2b9409b8119ba723e9a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f1c632818d34404889501740d1fa761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11460604
+  Events:
+  - Event:
+      value:
+        f1: 16
+        f2: 0
+        f3: 0
+        f4: 0
+        f5: 0
+        f6: 0
+        f7: 0
+        f8: 0
+    Recycle: {fileID: 11496164}
+--- !u!114 &11456620
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129562}
+  m_GameObject: {fileID: 139536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a011e8c679cb14c9ad7ac1bbaf15f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time:
+    channel: 0
+    timeScale: 1
+--- !u!114 &11485290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ac73f537ac8884ca7158bd55cbaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DieEvent:
+    value:
+      f1: 16
+      f2: 0
+      f3: 0
+      f4: 0
+      f5: 0
+      f6: 0
+      f7: 0
+      f8: 0
+  LifeTime: 0
+--- !u!114 &11496164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139536}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 854da3c5ffe9fac4682d720ab2c6192b, type: 3}
@@ -62,29 +111,6 @@ MonoBehaviour:
       f6: 0
       f7: 0
       f8: 0
---- !u!114 &11492748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d4f223f47c163a45b2e099f67dc38fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Events:
-  - Event:
-      value:
-        f1: 2
-        f2: 0
-        f3: 0
-        f4: 0
-        f5: 0
-        f6: 0
-        f7: 0
-        f8: 0
-    State: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -93,23 +119,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: Events.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: StateMachine
-      value: 
-      objectReference: {fileID: 11472310, guid: bd61aae1668d9ce42beabc59215878b0,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: Events.Array.data[0].Event.value.f1
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: Events.Array.data[0].State
-      value: 1
+      propertyPath: LifeTime
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 129562}
+  m_RootGameObject: {fileID: 139536}
   m_IsPrefabParent: 1

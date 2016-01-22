@@ -31,7 +31,7 @@ public class LifeTimeSystem : SystemBase, IUpdateable
 			lifeTime.LifeCounter += time.DeltaTime;
 
 			if (lifeTime.LifeCounter >= lifeTime.LifeTime)
-				EventManager.Trigger(Events.OnDie, entity);
+				EventManager.Trigger(lifeTime.DieEvent, entity);
 		}
 	}
 }

@@ -10,10 +10,13 @@ using Pseudo.Internal.Entity;
 
 public class zTest : PMonoBehaviour
 {
+	public Events Event1;
+	public Events Event2;
+	public StateMachineEvents SE;
 	public EntityBehaviour Entity;
 	[Inject]
 	IEntityManager entityManager = null;
-	public const int iterations = 100000;
+	public const int iterations = 1000;
 
 	[Button]
 	public bool test;
@@ -25,7 +28,7 @@ public class zTest : PMonoBehaviour
 
 	void Update()
 	{
-		var entity = entityManager.CreateEntity(Entity);
+		entityManager.CreateEntity(Entity);
 	}
 }
 
@@ -38,5 +41,10 @@ namespace Pseudo
 		public static readonly Events OnUnequip = new Events(2);
 		public static readonly Events OnBuy = new Events(3);
 		public static readonly Events OnDie = new Events(4);
+	}
+
+	public partial class EntityGroups
+	{
+		public static readonly EntityGroups Food = new EntityGroups(1);
 	}
 }
