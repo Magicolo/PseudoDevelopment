@@ -320,27 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event1:
-    value:
-      f1: 16
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
-  Event2:
-    value:
-      f1: 16
-      f2: 0
-      f3: 0
-      f4: 0
-      f5: 0
-      f6: 0
-      f7: 0
-      f8: 0
-  SE:
-    value: 0
-  Entity: {fileID: 11472310, guid: bd61aae1668d9ce42beabc59215878b0, type: 2}
+  Entity: {fileID: 11498256, guid: bd61aae1668d9ce42beabc59215878b0, type: 2}
+  SpawnMany: 1
   test: 0
