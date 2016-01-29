@@ -40,6 +40,8 @@ namespace Pseudo
 		public static readonly Events OnUnequip = new Events(2);
 		public static readonly Events OnBuy = new Events(3);
 		public static readonly Events OnDie = new Events(4);
+		public static readonly Events Spawn = new Events(5);
+		public static readonly Events OnSpawned = new Events(6);
 	}
 
 	public partial class EntityGroups
