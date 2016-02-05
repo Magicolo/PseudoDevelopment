@@ -10,10 +10,10 @@ using Pseudo.Internal.Entity;
 using UnityEngine.Events;
 using System.Reflection;
 using Pseudo.Internal;
+using UnityEngine.SceneManagement;
 
-public class zTest : PMonoBehaviour, IMessageable
+public class zTest : PMonoBehaviour
 {
-	public MessageEnum E;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	[Inject]
@@ -24,27 +24,13 @@ public class zTest : PMonoBehaviour, IMessageable
 	public bool test;
 	void Test()
 	{
-		var m = new MessageManager();
-		m.Send(this, E.Value);
-		//entityManager.CreateEntity(Entity);
-		//SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % 2);
-	}
 
-	[Message(Messages.One)]
-	void Callback()
-	{
-		PDebug.LogMethod();
 	}
 
 	void Update()
 	{
 		if (SpawnMany)
 			entityManager.CreateEntity(Entity);
-	}
-
-	public void OnMessage<TId>(TId message)
-	{
-		PDebug.LogMethod(message);
 	}
 }
 
@@ -83,43 +69,5 @@ namespace Pseudo
 		public static readonly EntityGroups Food1 = new EntityGroups(1);
 		public static readonly EntityGroups Food2 = new EntityGroups(2);
 		public static readonly EntityGroups Food3 = new EntityGroups(3);
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-public enum AllEvents
-{
-	OnFire,
-	OnMove,
-	OnStart,
-	OnFall
-}
-
-public class AComponent : ComponentBehaviour
-{
-	[Message(AllEvents.OnFire)]
-	void OnFire()
-	{
-		// Do something
-	}
-
-	[Message(AllEvents.OnMove)]
-	void OnMove()
-	{
-		// Do something
 	}
 }
