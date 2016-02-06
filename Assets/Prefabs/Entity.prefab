@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groups:
     value:
-      f1: 2
+      f1: 0
       f2: 0
       f3: 0
       f4: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 1
+  Duration: 0.1
   OnDie:
     Message:
       value: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RecycleMessage:
-    value: 3
+    value: 0
     typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &100100000
 Prefab:
@@ -189,6 +189,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RecycleMessage.value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RecycleMessage.typeName
+      value: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Duration
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Entity: {fileID: 11401526, guid: 38ea9e38ecbc9f1488cb2d6e7e6cda8c, type: 2}
-  SpawnMany: 0
+  SpawnMany: 1
   test: 0
 --- !u!1001 &1413493288
 Prefab:

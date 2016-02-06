@@ -18,7 +18,8 @@ public class zTest : PMonoBehaviour
 	public bool SpawnMany = true;
 	[Inject]
 	IEntityManager entityManager = null;
-	public const int iterations = 10000;
+	public const int iterations = 1000;
+
 
 	[Button]
 	public bool test;
@@ -26,12 +27,7 @@ public class zTest : PMonoBehaviour
 	{
 		entityManager.CreateEntity(Entity);
 	}
-
-	void OnTransformChildrenChanged()
-	{
-		PDebug.LogMethod();
-	}
-
+	
 	void Update()
 	{
 		if (SpawnMany)
