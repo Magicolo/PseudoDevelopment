@@ -24,7 +24,12 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
+		entityManager.CreateEntity(Entity);
+	}
 
+	void OnTransformChildrenChanged()
+	{
+		PDebug.LogMethod();
 	}
 
 	void Update()
@@ -35,7 +40,7 @@ public class zTest : PMonoBehaviour
 }
 
 [MessageEnum]
-public enum Messages
+public enum Messages : byte
 {
 	Zero,
 	One,
