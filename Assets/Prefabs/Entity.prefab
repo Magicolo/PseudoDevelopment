@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0.1
+  Duration: 2.15
   OnDie:
     Message:
       value: 0
@@ -200,7 +200,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Duration
-      value: 0.1
+      value: 2.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: time.channel
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
