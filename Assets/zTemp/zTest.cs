@@ -24,30 +24,16 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
-		//entityManager.CreateEntity(Entity);
+		entityManager.CreateEntity(Entity);
 	}
 
 	void Update()
 	{
-		var array1 = new FragmentArray<string>(8);
-		array1.Dispose();
-
 		if (SpawnMany)
 		{
 			for (int i = 0; i < 100; i++)
 				entityManager.CreateEntity(Entity);
 		}
-	}
-
-	public class ToInject
-	{
-		[Inject]
-		public IEntityManager EntityManager { get; set; }
-	}
-
-	public TElement GetSomtin<TList, TElement>(TList list) where TList : IList<TElement>
-	{
-		return list.First();
 	}
 }
 

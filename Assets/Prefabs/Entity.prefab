@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 487522}
   - 114: {fileID: 11401526}
   - 114: {fileID: 11453156}
+  - 114: {fileID: 11491322}
   m_Layer: 0
   m_Name: Entity
   m_TagString: Untagged
@@ -147,6 +148,18 @@ MonoBehaviour:
   RecycleMessage:
     value: 0
     typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &11491322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76eddca9b92d3114c989eea50c67adce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Actions: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -156,7 +169,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: Actions.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Actions.Array.data[0].Message.value
@@ -168,7 +181,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Actions.Array.data[0].Spatialization
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Group.value.f1
@@ -206,6 +219,28 @@ Prefab:
       propertyPath: time.channel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Actions.Array.data[1].Message.value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Actions.Array.data[1].Message.typeName
+      value: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Actions.Array.data[1].Spatialization
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Actions.Array.data[0].Audio
+      value: 
+      objectReference: {fileID: 11400000, guid: fa000e289737c594bae083e527b6eea9,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: Actions.Array.data[1].Audio
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a58c89df2a19ec4eb5d7a82559ac383,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114704}
