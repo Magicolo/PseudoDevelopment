@@ -5,12 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
 using Zenject;
-using UnityEngine.Assertions;
-using Pseudo.Internal.Entity;
-using UnityEngine.Events;
-using System.Reflection;
-using Pseudo.Internal;
-using UnityEngine.SceneManagement;
 
 public class zTest : PMonoBehaviour
 {
@@ -61,12 +55,6 @@ public class MessagesComparer : IEqualityComparer<Messages>
 
 namespace Pseudo
 {
-	public partial class Events
-	{
-		public static readonly Events OnClash = new Events(1);
-		public static readonly Events OnSplash = new Events(2);
-	}
-
 	public partial class EntityGroups
 	{
 		public static readonly EntityGroups Food1 = new EntityGroups(1);
