@@ -14,6 +14,14 @@ public class zTest : PMonoBehaviour
 	IEntityManager entityManager = null;
 	public const int iterations = 1000;
 
+	[SerializeField, PropertyField]
+	float f;
+	public float F
+	{
+		get { return f; }
+		set { f = value; }
+	}
+
 	[Button]
 	public bool test;
 	void Test()
