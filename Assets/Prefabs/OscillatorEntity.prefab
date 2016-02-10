@@ -79,8 +79,8 @@ MonoBehaviour:
     Settings:
     - WaveShape: 5
       Frequency:
-        min: 1
-        max: 2
+        min: 1.08
+        max: 1.08
       Amplitude:
         min: 100
         max: 100
@@ -89,23 +89,23 @@ MonoBehaviour:
         max: 2
       Offset:
         min: 0
-        max: 1
+        max: 100
       Ratio:
         min: 1
         max: 2
     - WaveShape: 5
       Frequency:
-        min: 1
-        max: 2
+        min: 1.03
+        max: 1.03
       Amplitude:
         min: 100
         max: 100
       Center:
-        min: 0
-        max: 0
+        min: 20.3
+        max: 20.3
       Offset:
         min: 0
-        max: 1
+        max: 100
       Ratio:
         min: 0
         max: 1
@@ -153,12 +153,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186258}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 127.25
+  Duration: 1
   OnDie:
     Message:
       value: 0
@@ -268,7 +268,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Duration
-      value: 127.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[1].Target
@@ -384,7 +384,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Offset.max
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Ratio.min
@@ -900,7 +900,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Offset.min
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Offset.max
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

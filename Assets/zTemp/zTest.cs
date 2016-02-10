@@ -5,9 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
 using Zenject;
+using Pseudo.Internal.Oscillation;
 
 public class zTest : PMonoBehaviour
 {
+	public AnimationCurve Curve;
+	public OscillationSettings Settings
+	{
+		get { return settings; }
+		set
+		{
+			settings = value;
+			Curve = OscillationUtility.ToAnimationCurve(Settings, 1000);
+		}
+	}
+	[SerializeField, PropertyField]
+	OscillationSettings settings;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	[Inject]
@@ -26,7 +39,7 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
-		entityManager.CreateEntity(Entity);
+		//entityManager.CreateEntity(Entity);
 	}
 
 	void Update()
