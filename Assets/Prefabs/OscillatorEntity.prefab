@@ -77,32 +77,32 @@ MonoBehaviour:
     PropertyName: position
     Flags: 3
     Settings:
-    - WaveShape: 5
+    - WaveShape: 9
       Frequency:
-        min: 1.08
-        max: 1.08
+        min: 0.1
+        max: 0.5
       Amplitude:
         min: 100
         max: 100
       Center:
-        min: 1
-        max: 2
+        min: -10
+        max: 10
       Offset:
         min: 0
         max: 100
       Ratio:
-        min: 1
-        max: 2
-    - WaveShape: 5
+        min: 0
+        max: 1
+    - WaveShape: 3
       Frequency:
-        min: 1.03
-        max: 1.03
+        min: 0.1
+        max: 0.5
       Amplitude:
         min: 100
         max: 100
       Center:
-        min: 20.3
-        max: 20.3
+        min: -10
+        max: 10
       Offset:
         min: 0
         max: 100
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 1
+  Duration: 2
   OnDie:
     Message:
       value: 0
@@ -348,7 +348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].WaveShape
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[2].WaveShape
@@ -360,23 +360,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Frequency.max
-      value: 2.28
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Amplitude.min
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Amplitude.max
-      value: 2
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Center.min
-      value: 1
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Center.max
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Offset.min
@@ -388,11 +388,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Ratio.min
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[0].Ratio.max
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[1].Settings.Array.data[3].WaveShape
@@ -888,7 +888,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].WaveShape
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Ratio.max
@@ -909,6 +909,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Offset.max
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Frequency.min
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Frequency.max
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Amplitude.min
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Amplitude.max
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Center.min
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Oscillators.Array.data[0].Settings.Array.data[1].Center.max
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

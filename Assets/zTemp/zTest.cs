@@ -6,49 +6,29 @@ using System.Linq;
 using Pseudo;
 using Zenject;
 using Pseudo.Internal.Oscillation;
+using System.Runtime.InteropServices;
+using UnityEngine.Events;
+using System.Reflection;
 
 public class zTest : PMonoBehaviour
 {
-	public AnimationCurve Curve;
-	public OscillationSettings Settings
-	{
-		get { return settings; }
-		set
-		{
-			settings = value;
-			Curve = OscillationUtility.ToAnimationCurve(Settings, 1000);
-		}
-	}
-	[SerializeField, PropertyField]
-	OscillationSettings settings;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	[Inject]
 	IEntityManager entityManager = null;
-	public const int iterations = 1000;
-
-	[SerializeField, PropertyField]
-	float f;
-	public float F
-	{
-		get { return f; }
-		set { f = value; }
-	}
+	public int Iterations = 1000;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
-		//entityManager.CreateEntity(Entity);
+		entityManager.CreateEntity(Entity);
 	}
 
 	void Update()
 	{
 		if (SpawnMany)
-		{
-			for (int i = 0; i < 100; i++)
-				entityManager.CreateEntity(Entity);
-		}
+			entityManager.CreateEntity(Entity);
 	}
 }
 
@@ -59,19 +39,6 @@ public enum Messages : byte
 	One,
 	Two,
 	Three,
-}
-
-public class MessagesComparer : IEqualityComparer<Messages>
-{
-	public bool Equals(Messages x, Messages y)
-	{
-		return x == y;
-	}
-
-	public int GetHashCode(Messages obj)
-	{
-		return (int)obj;
-	}
 }
 
 namespace Pseudo
