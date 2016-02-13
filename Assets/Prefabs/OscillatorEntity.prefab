@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11459836}
   - 114: {fileID: 11464678}
   - 114: {fileID: 11404132}
-  - 114: {fileID: 11485982}
+  - 114: {fileID: 11478074}
   - 212: {fileID: 21206690}
   m_Layer: 0
   m_Name: OscillatorEntity
@@ -77,13 +77,13 @@ MonoBehaviour:
     PropertyName: position
     Flags: 3
     Settings:
-    - WaveShape: 9
+    - WaveShape: 5
       Frequency:
         min: 0.1
         max: 0.5
       Amplitude:
-        min: 100
-        max: 100
+        min: -75
+        max: 75
       Center:
         min: -10
         max: 10
@@ -93,13 +93,13 @@ MonoBehaviour:
       Ratio:
         min: 0
         max: 1
-    - WaveShape: 3
+    - WaveShape: 6
       Frequency:
         min: 0.1
         max: 0.5
       Amplitude:
-        min: 100
-        max: 100
+        min: -75
+        max: 75
       Center:
         min: -10
         max: 10
@@ -114,14 +114,14 @@ MonoBehaviour:
         min: 1
         max: 2
       Amplitude:
-        min: 1
-        max: 2
+        min: 0
+        max: 1
       Center:
         min: 0
         max: 0
       Offset:
         min: 0
-        max: 1
+        max: 100
       Ratio:
         min: 0.5
         max: 0.5
@@ -147,7 +147,7 @@ MonoBehaviour:
       f6: 0
       f7: 0
       f8: 0
---- !u!114 &11485982
+--- !u!114 &11478074
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -155,15 +155,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 186258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2088922265d8bf94b89cf0e418131507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 2
-  OnDie:
-    Message:
-      value: 0
-      typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    Propagation: 0
+  Messages:
+  - Message:
+      Message:
+        value: 0
+        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Propagation: 0
+    Delay: 10
+    Trigger: 0
   Time: {fileID: 11459836}
 --- !u!212 &21206690
 SpriteRenderer:

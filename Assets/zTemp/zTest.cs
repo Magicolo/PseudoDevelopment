@@ -22,7 +22,7 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
-		entityManager.CreateEntity(Entity);
+		//entityManager.CreateEntity(Entity);
 	}
 
 	void Update()
