@@ -4,19 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
-using Zenject;
-using Pseudo.Internal.Oscillation;
-using System.Runtime.InteropServices;
-using UnityEngine.Events;
-using System.Reflection;
+using Pseudo.Internal.Injection;
 
 public class zTest : PMonoBehaviour
 {
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
-	[Inject]
 	IEntityManager entityManager = null;
 	public int Iterations = 1000;
+	IBinder binder;
+
+	[Inject(Optional = true)]
+	readonly IDummy dummy = null;
 
 	[Button]
 	public bool test;
@@ -27,10 +26,21 @@ public class zTest : PMonoBehaviour
 
 	void Update()
 	{
+		if (binder == null)
+		{
+			binder = new Binder();
+			binder.Bind<IDummy>().ToSingle<Dummy>();
+		}
+
+		binder.Injector.Inject(this);
+
 		if (SpawnMany)
 			entityManager.CreateEntity(Entity);
 	}
 }
+
+public interface IDummy { }
+public class Dummy : IDummy { }
 
 [MessageEnum]
 public enum Messages : byte
