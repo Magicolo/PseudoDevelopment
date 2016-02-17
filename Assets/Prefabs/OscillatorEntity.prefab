@@ -164,7 +164,7 @@ MonoBehaviour:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 0
-    Delay: 10
+    Delay: 1
     Trigger: 0
   Time: {fileID: 11459836}
 --- !u!212 &21206690
