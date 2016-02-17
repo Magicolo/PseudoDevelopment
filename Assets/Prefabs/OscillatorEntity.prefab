@@ -77,12 +77,12 @@ MonoBehaviour:
     PropertyName: position
     Flags: 3
     Settings:
-    - WaveShape: 5
+    - WaveShape: 2
       Frequency:
         min: 0.1
         max: 0.5
       Amplitude:
-        min: -75
+        min: 0
         max: 75
       Center:
         min: -10
@@ -91,14 +91,14 @@ MonoBehaviour:
         min: 0
         max: 100
       Ratio:
-        min: 0
-        max: 1
-    - WaveShape: 6
+        min: 0.5
+        max: 0.5
+    - WaveShape: 8
       Frequency:
         min: 0.1
         max: 0.5
       Amplitude:
-        min: -75
+        min: 0
         max: 75
       Center:
         min: -10
@@ -107,8 +107,8 @@ MonoBehaviour:
         min: 0
         max: 100
       Ratio:
-        min: 0
-        max: 1
+        min: 0.5
+        max: 0.5
     - WaveShape: 0
       Frequency:
         min: 1
