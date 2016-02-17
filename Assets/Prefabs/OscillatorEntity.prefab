@@ -41,12 +41,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 186258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32844e791af0b9b479610d927cb11b3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c63a7f5128a2d2449add1eadf439d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecycleMessage:
-    value: 0
-    typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Messages:
+  - Message:
+      Message:
+        value: 0
+        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Propagation: 0
+    Delay: 1
+    Trigger: 0
+  Time: {fileID: 11459836}
 --- !u!114 &11459836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +61,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 186258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a011e8c679cb14c9ad7ac1bbaf15f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c5d98cb8fbf99648880738ecb7452a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time:
@@ -69,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 186258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d1c4f7e1f26dd4887185aaf1afbd62, type: 3}
+  m_Script: {fileID: 11500000, guid: 013a16d9318081345b3290c6fdf2c11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Oscillators:
@@ -155,18 +161,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 186258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2088922265d8bf94b89cf0e418131507, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e4ae964d44bca42ada998dd25855fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Messages:
-  - Message:
-      Message:
-        value: 0
-        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 0
-    Delay: 1
-    Trigger: 0
-  Time: {fileID: 11459836}
+  RecycleMessage:
+    value: 0
+    typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!212 &21206690
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -294,18 +294,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1823429838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2088922265d8bf94b89cf0e418131507, type: 3}
+  m_Script: {fileID: 11500000, guid: 209ddab7a8ab3534c9c730406c028efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Messages:
-  - Message:
-      Message:
-        value: 1
-        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 0
-    Delay: 5
-    Trigger: 0
-  Time: {fileID: 1823429841}
+  LoadMessage:
+    value: 0
+    typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Scene: Test
 --- !u!114 &1823429840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,13 +309,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1823429838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26a979c887e89d246b5b1dea4ee470e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c63a7f5128a2d2449add1eadf439d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadMessage:
-    value: 1
-    typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Scene: Test
+  Messages:
+  - Message:
+      Message:
+        value: 0
+        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Propagation: 0
+    Delay: 5
+    Trigger: 0
+  Time: {fileID: 1823429841}
 --- !u!114 &1823429841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1823429838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a011e8c679cb14c9ad7ac1bbaf15f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c5d98cb8fbf99648880738ecb7452a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time:

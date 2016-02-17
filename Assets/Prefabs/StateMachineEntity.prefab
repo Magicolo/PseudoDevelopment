@@ -129,11 +129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 185902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a011e8c679cb14c9ad7ac1bbaf15f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c5d98cb8fbf99648880738ecb7452a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time:
-    channel: 4
+    channel: 0
     timeScale: 1
 --- !u!114 &11411652
 MonoBehaviour:
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 185902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32844e791af0b9b479610d927cb11b3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e4ae964d44bca42ada998dd25855fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RecycleMessage:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 185902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45aa90fc35a19a14a8ec9784f3a4b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9f22885a8369c4494a79cc7cf29473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StartState: {fileID: 11453712}
@@ -266,15 +266,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 131254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c63a7f5128a2d2449add1eadf439d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 1
-  OnDie:
-    Message:
-      value: 0
-      typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    Propagation: 2
+  Messages:
+  - Message:
+      Message:
+        value: 0
+        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Propagation: 2
+    Delay: 1
+    Trigger: 0
   Time: {fileID: 11409260}
 --- !u!114 &11477444
 MonoBehaviour:
@@ -284,15 +286,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 190872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c63a7f5128a2d2449add1eadf439d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 1
-  OnDie:
-    Message:
-      value: 3
-      typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    Propagation: 2
+  Messages:
+  - Message:
+      Message:
+        value: 3
+        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Propagation: 2
+    Delay: 1
+    Trigger: 0
   Time: {fileID: 11409260}
 --- !u!114 &11481592
 MonoBehaviour:
@@ -302,15 +306,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 188608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bb4a6e0ba65c7a44a3abc326ee62a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c63a7f5128a2d2449add1eadf439d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 1
-  OnDie:
-    Message:
-      value: 2
-      typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    Propagation: 2
+  Messages:
+  - Message:
+      Message:
+        value: 2
+        typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      Propagation: 2
+    Delay: 1
+    Trigger: 0
   Time: {fileID: 11409260}
 --- !u!1001 &100100000
 Prefab:
