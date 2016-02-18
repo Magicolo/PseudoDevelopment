@@ -301,6 +301,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 864135843}
   - 114: {fileID: 864135844}
+  - 114: {fileID: 864135846}
+  - 114: {fileID: 864135845}
+  - 114: {fileID: 864135842}
   m_Layer: 0
   m_Name: zTest
   m_TagString: Boba
@@ -308,6 +311,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &864135842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864135841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40309bde41fe0c4c8fb0061dfef369a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  HitTrigger: 0
+  HitStartCollider: 0
+  Draw: 1
+  HitMode: 1
+  Amount: 89
+  Spread: 208
+  Distance: 16.6
 --- !u!4 &864135843
 Transform:
   m_ObjectHideFlags: 0
@@ -315,7 +339,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 864135841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.6, y: -12.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -335,6 +359,47 @@ MonoBehaviour:
   SpawnMany: 1
   Iterations: 10000
   test: 0
+--- !u!114 &864135845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864135841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eaa620575252de41a09572529e016a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  HitTrigger: 0
+  Draw: 1
+  HitMode: 0
+  Amount: 45
+  Spread: 202
+  Distance: 16.05
+--- !u!114 &864135846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864135841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854da3c5ffe9fac4682d720ab2c6192b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groups:
+    value:
+      f1: 0
+      f2: 0
+      f3: 0
+      f4: 0
+      f5: 0
+      f6: 0
+      f7: 0
+      f8: 0
 --- !u!1 &1011950830
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,10 +525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209ddab7a8ab3534c9c730406c028efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadMessage:
+  Scene: Test 1
+  Message:
     value: 0
     typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Scene: Test 1
 --- !u!114 &1011950836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,12 +541,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Events: 1
+    Message:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 0
-    Events: 1
 --- !u!114 &1011950837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,14 +580,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Player: 1
+    Action: Submit
+    Trigger: 2
+    Message:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 0
-    Player: 1
-    Action: Submit
-    Trigger: 2
 --- !u!1 &1034125341
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,16 +859,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Actions:
-  - Message:
+  - Target: {fileID: 1454927339}
+    Enabled: 0
+    Message:
       value: 1
       typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    Target: {fileID: 1454927339}
-    Enabled: 0
-  - Message:
+  - Target: {fileID: 1454927339}
+    Enabled: 1
+    Message:
       value: 2
       typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-    Target: {fileID: 1454927339}
-    Enabled: 1
 --- !u!114 &1454927336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,18 +881,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Events: 8
+    Message:
       Message:
         value: 1
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 0
-    Events: 8
-  - Message:
+  - Events: 16
+    Message:
       Message:
         value: 2
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 0
-    Events: 16
 --- !u!114 &1454927337
 MonoBehaviour:
   m_ObjectHideFlags: 0

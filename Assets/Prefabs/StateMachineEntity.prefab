@@ -188,7 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e4ae964d44bca42ada998dd25855fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecycleMessage:
+  Recycle: {fileID: 11418770}
+  Message:
     value: 0
     typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &11427118
@@ -270,13 +271,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Delay: 1
+    Trigger: 0
+    Message:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 2
-    Delay: 1
-    Trigger: 0
   Time: {fileID: 11409260}
 --- !u!114 &11477444
 MonoBehaviour:
@@ -290,13 +291,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Delay: 1
+    Trigger: 0
+    Message:
       Message:
         value: 3
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 2
-    Delay: 1
-    Trigger: 0
   Time: {fileID: 11409260}
 --- !u!114 &11481592
 MonoBehaviour:
@@ -310,13 +311,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Delay: 1
+    Trigger: 0
+    Message:
       Message:
         value: 2
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 2
-    Delay: 1
-    Trigger: 0
   Time: {fileID: 11409260}
 --- !u!1001 &100100000
 Prefab:

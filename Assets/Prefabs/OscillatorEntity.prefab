@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Delay: 1
+    Trigger: 0
+    Message:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       Propagation: 0
-    Delay: 1
-    Trigger: 0
   Time: {fileID: 11459836}
 --- !u!114 &11459836
 MonoBehaviour:
@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e4ae964d44bca42ada998dd25855fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecycleMessage:
+  Recycle: {fileID: 11477238}
+  Message:
     value: 0
     typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!212 &21206690

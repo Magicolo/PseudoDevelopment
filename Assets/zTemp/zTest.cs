@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
 using Pseudo.Internal.Injection;
-using System.Diagnostics;
 using System.Reflection;
 
 public class zTest : PMonoBehaviour
@@ -27,6 +26,11 @@ public class zTest : PMonoBehaviour
 	{
 		if (SpawnMany)
 			entityManager.CreateEntity(Entity);
+	}
+
+	void OnDrawGizmos()
+	{
+		Debug.DrawRay(Vector3.zero, CachedTransform.TransformVector(new Vector3(10f, 0f, 0f)));
 	}
 }
 
