@@ -7,7 +7,7 @@ using Pseudo;
 using Pseudo.Internal.Injection;
 using System.Reflection;
 
-public class zTest : PMonoBehaviour
+public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
 {
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
@@ -15,11 +15,17 @@ public class zTest : PMonoBehaviour
 	IEntityManager entityManager = null;
 	public int Iterations = 1000;
 
+	public object Data;
+	[SerializeField]
+	string dataType;
+	[SerializeField]
+	string data;
+
 	[Button]
 	public bool test;
 	void Test()
 	{
-		entityManager.CreateEntity(Entity);
+		//entityManager.CreateEntity(Entity);
 	}
 
 	void Update()
@@ -31,6 +37,43 @@ public class zTest : PMonoBehaviour
 	void OnDrawGizmos()
 	{
 		Debug.DrawRay(Vector3.zero, CachedTransform.TransformVector(new Vector3(10f, 0f, 0f)));
+	}
+
+	void ISerializationCallbackReceiver.OnBeforeSerialize()
+	{
+		if (Data == null)
+		{
+			data = null;
+			return;
+		}
+
+		dataType = Data.GetType().AssemblyQualifiedName;
+		data = JsonUtility.ToJson(Data);
+	}
+
+	void ISerializationCallbackReceiver.OnAfterDeserialize()
+	{
+		if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(dataType))
+			return;
+
+		var type = TypeUtility.GetType(dataType);
+		Data = JsonUtility.FromJson(data, type);
+	}
+}
+
+public class ClassA
+{
+	public void Method(object arg)
+	{
+		PDebug.Log(GetType().Name, arg);
+	}
+}
+
+public class ClassB
+{
+	public void Method(object arg)
+	{
+		PDebug.Log(GetType().Name, arg);
 	}
 }
 

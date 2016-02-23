@@ -51,7 +51,7 @@ MonoBehaviour:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 0
+      Scope: 1
   Time: {fileID: 11459836}
 --- !u!114 &11459836
 MonoBehaviour:
