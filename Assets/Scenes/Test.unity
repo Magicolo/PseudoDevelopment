@@ -613,7 +613,7 @@ MonoBehaviour:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Scope: 0
+      Scope: 1
 --- !u!114 &1011950837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Scope: 0
+      Scope: 1
 --- !u!1 &1034125341
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,13 +867,13 @@ MonoBehaviour:
       Message:
         value: 1
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Scope: 0
+      Scope: 1
   - Events: 16
     Message:
       Message:
         value: 2
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Scope: 0
+      Scope: 1
 --- !u!114 &1454927337
 MonoBehaviour:
   m_ObjectHideFlags: 0

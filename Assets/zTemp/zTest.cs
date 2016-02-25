@@ -6,6 +6,7 @@ using System.Linq;
 using Pseudo;
 using Pseudo.Internal.Injection;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
 {
@@ -61,20 +62,9 @@ public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
 	}
 }
 
-public class ClassA
+public class Something
 {
-	public void Method(object arg)
-	{
-		PDebug.Log(GetType().Name, arg);
-	}
-}
-
-public class ClassB
-{
-	public void Method(object arg)
-	{
-		PDebug.Log(GetType().Name, arg);
-	}
+	public float F;
 }
 
 [MessageEnum]

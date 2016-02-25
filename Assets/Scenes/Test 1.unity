@@ -127,6 +127,8 @@ MonoBehaviour:
   Entity: {fileID: 11477238, guid: 9dccf3c7623af554580e6b9ed1191034, type: 2}
   SpawnMany: 1
   Iterations: 10000
+  dataType: 
+  data: 
   test: 0
 --- !u!1 &1355419575
 GameObject:
@@ -181,6 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5aa4ac69a1d244ca11e8576f2cb131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 0}
+  UICamera: {fileID: 0}
 --- !u!1 &1373068996
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,10 +301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209ddab7a8ab3534c9c730406c028efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadMessage:
+  Scene: Test
+  Message:
     value: 0
     typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Scene: Test
 --- !u!114 &1823429840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,13 +317,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages:
-  - Message:
+  - Delay: 5
+    Trigger: 0
+    Message:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 0
-    Delay: 5
-    Trigger: 0
+      Scope: 1
   Time: {fileID: 1823429841}
 --- !u!114 &1823429841
 MonoBehaviour:
