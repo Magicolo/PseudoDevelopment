@@ -397,6 +397,7 @@ GameObject:
   - 114: {fileID: 864135844}
   - 114: {fileID: 864135846}
   - 114: {fileID: 864135842}
+  - 114: {fileID: 864135845}
   m_Layer: 0
   m_Name: zTest
   m_TagString: Boba
@@ -440,12 +441,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Entity: {fileID: 11477238, guid: 9dccf3c7623af554580e6b9ed1191034, type: 2}
-  SpawnMany: 1
-  Iterations: 10000
-  dataType: Pseudo.MinMax, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  data: '{"min":9.34000015258789,"max":9.34000015258789}'
+  Entity: {fileID: 0}
+  SpawnMany: 0
+  Iterations: 1000
+  dataType: UnityEngine.AnimationCurve, UnityEngine, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  data: '{}'
+  V3P:
+    target: {fileID: 864135843}
+    propertyName: eulerAngles
   test: 0
+--- !u!114 &864135845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864135841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013a16d9318081345b3290c6fdf2c11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Oscillators:
+  - Target: {fileID: 864135843}
+    PropertyName: 
+    Flags: 0
+    Settings: []
+  Time: {fileID: 0}
 --- !u!114 &864135846
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,9 @@ using Pseudo;
 using Pseudo.Internal.Injection;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using UnityEngine.Networking;
+using Pseudo.Internal.References;
+using UnityEngine.Events;
 
 public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
 {
@@ -21,6 +24,8 @@ public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
 	string dataType;
 	[SerializeField]
 	string data;
+
+	public Vector3Property V3P;
 
 	[Button]
 	public bool test;
@@ -62,9 +67,24 @@ public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
 	}
 }
 
-public class Something
+[Serializable]
+public class Some<T> : Something
 {
-	public float F;
+	public T Value;
+}
+
+[Serializable]
+public class Something : ISerializationCallbackReceiver
+{
+	void ISerializationCallbackReceiver.OnAfterDeserialize()
+	{
+		PDebug.LogMethod();
+	}
+
+	void ISerializationCallbackReceiver.OnBeforeSerialize()
+	{
+		PDebug.LogMethod();
+	}
 }
 
 [MessageEnum]
