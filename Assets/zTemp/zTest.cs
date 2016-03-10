@@ -10,81 +10,68 @@ using System.Runtime.InteropServices;
 using UnityEngine.Networking;
 using Pseudo.Internal.References;
 using UnityEngine.Events;
+using UnityEngine.Scripting;
+using Pseudo.Internal;
+using Pseudo.Internal.Entity;
+using System.Text;
 
-public class zTest : PMonoBehaviour, ISerializationCallbackReceiver
+public class zTest : PMonoBehaviour
 {
+	[Serializable]
+	public class ComponentProperty : PropertyReference<IComponent> { }
+	public ScriptableObject Schema;
+
+	public PType Type;
+	public ComponentProperty Component;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	[Inject]
 	IEntityManager entityManager = null;
 	public int Iterations = 1000;
 
-	public object Data;
-	[SerializeField]
-	string dataType;
-	[SerializeField]
-	string data;
-
-	public Vector3Property V3P;
-
 	[Button]
 	public bool test;
 	void Test()
 	{
-		//entityManager.CreateEntity(Entity);
+
+	}
+
+	protected override void Start()
+	{
+		base.Start();
+
+		Test();
 	}
 
 	void Update()
 	{
 		if (SpawnMany)
-			entityManager.CreateEntity(Entity);
-	}
-
-	void OnDrawGizmos()
-	{
-		Debug.DrawRay(Vector3.zero, CachedTransform.TransformVector(new Vector3(10f, 0f, 0f)));
-	}
-
-	void ISerializationCallbackReceiver.OnBeforeSerialize()
-	{
-		if (Data == null)
 		{
-			data = null;
-			return;
+			entityManager.CreateEntity(Entity);
 		}
-
-		dataType = Data.GetType().AssemblyQualifiedName;
-		data = JsonUtility.ToJson(Data);
 	}
 
-	void ISerializationCallbackReceiver.OnAfterDeserialize()
+	float property1 = 2;
+	float property2 = 1.1f;
+
+	public float Property1
 	{
-		if (string.IsNullOrEmpty(data) || string.IsNullOrEmpty(dataType))
-			return;
-
-		var type = TypeUtility.GetType(dataType);
-		Data = JsonUtility.FromJson(data, type);
+		get { return property1; }
+		set { property1 = value; }
 	}
-}
 
-[Serializable]
-public class Some<T> : Something
-{
-	public T Value;
-}
-
-[Serializable]
-public class Something : ISerializationCallbackReceiver
-{
-	void ISerializationCallbackReceiver.OnAfterDeserialize()
+	public float Property2
 	{
-		PDebug.LogMethod();
+		get { return property2; }
+		set { property2 = value; }
 	}
 
-	void ISerializationCallbackReceiver.OnBeforeSerialize()
+	public float Method1(float a)
 	{
-		PDebug.LogMethod();
+		return a + 1f;
 	}
+
+	public void Method2(zTest test, float d, float b) { }
 }
 
 [MessageEnum]

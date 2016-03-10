@@ -13,6 +13,8 @@ TagManager:
   - UI
   - 
   - 
+  - Floor
+  - Wall
   - 
   - 
   - 
@@ -21,13 +23,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - NPC
+  - plyObject
+  - plyItem
+  - plyTrigger
   - 
   - 
   - 
