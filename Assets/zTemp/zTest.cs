@@ -4,25 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
-using Pseudo.Internal.Injection;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using UnityEngine.Networking;
-using Pseudo.Internal.References;
-using UnityEngine.Events;
-using UnityEngine.Scripting;
-using Pseudo.Internal;
-using Pseudo.Internal.Entity;
-using System.Text;
+using Pseudo.Internal.BehaviourTree;
 
 public class zTest : PMonoBehaviour
 {
-	[Serializable]
-	public class ComponentProperty : PropertyReference<IComponent> { }
-	public ScriptableObject Schema;
-
-	public PType Type;
-	public ComponentProperty Component;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	[Inject]
@@ -33,22 +18,40 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
+		//var treeNode = new BehaviourTreeAsset
+		//{
+		//	Root = new SequenceNode
+		//	{
+		//		Children = new List<NodeBase>
+		//		{
+		//			new LogNode(),
+		//			new LogNode()
+		//		}
+		//	}
+		//};
 
+		//var tree = treeNode.CreateAction();
+
+		//PDebug.Log(tree.State);
+
+		//while (tree.Update(null) == ActionStates.Running)
+		//	PDebug.Log(tree.State);
+
+		//PDebug.Log(tree.State);
 	}
 
-	protected override void Start()
-	{
-		base.Start();
+	//T Add<T>(T a, T b)
+	//{
+	//	var type = typeof(T);
 
-		Test();
-	}
+	//	if (type == typeof(int))
+	//		return Cast<T>.T
+	//}
 
 	void Update()
 	{
 		if (SpawnMany)
-		{
 			entityManager.CreateEntity(Entity);
-		}
 	}
 
 	float property1 = 2;
@@ -83,12 +86,32 @@ public enum Messages : byte
 	Three,
 }
 
-namespace Pseudo
+public class LogAction : ActionBase
 {
-	public partial class EntityGroups
+	readonly int maxCount;
+	int count;
+
+	public LogAction(int maxCount)
 	{
-		public static readonly EntityGroups Food1 = new EntityGroups(1);
-		public static readonly EntityGroups Food2 = new EntityGroups(2);
-		public static readonly EntityGroups Food3 = new EntityGroups(3);
+		this.maxCount = maxCount;
+	}
+
+	public override ActionStates OnExecute(BehaviourTree tree)
+	{
+		count++;
+		PDebug.Log(this, GetHashCode(), count);
+
+		if (count < maxCount)
+			return ActionStates.Running;
+		else
+			return ActionStates.Success;
+	}
+}
+
+public class LogNode : NodeBase
+{
+	public override IAction CreateAction()
+	{
+		return new LogAction(3);
 	}
 }
