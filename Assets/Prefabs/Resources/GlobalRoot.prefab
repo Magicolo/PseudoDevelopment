@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c232c484192e16040af14bba75fe80fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Installers:
+  installers:
   - {fileID: 11402754}
 --- !u!1001 &100100000
 Prefab:

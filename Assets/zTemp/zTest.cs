@@ -5,19 +5,35 @@ using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
 using Pseudo.Internal.BehaviourTree;
+using System.Reflection;
+using Pseudo.Internal;
+using Pseudo.Internal.Injection;
+using UnityEngine.SceneManagement;
 
 public class zTest : PMonoBehaviour
 {
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
-	[Inject]
-	IEntityManager entityManager = null;
 	public int Iterations = 1000;
+
+	[Inject]
+	readonly IEntityManager entityManager = null;
+	[Inject]
+	readonly IBinder binder = null;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
+		PDebug.Log(binder);
+		//	type.GetMethods(flags)
+		//	.Where(m => !m.IsSpecialName)
+		//	.Concat(types
+		//	.SelectMany(t => t.GetMethods(flags))
+		//	.Where(m => m.IsPrivate && !m.IsSpecialName))
+		//	.Select(m => string.Format("{0}.{1} : {2} ({3})\n", m.DeclaringType.Name, m.Name, m.ReturnType.Name, m.ReflectedType))
+		//	.ToArray());
+
 		//var treeNode = new BehaviourTreeAsset
 		//{
 		//	Root = new SequenceNode
@@ -40,41 +56,11 @@ public class zTest : PMonoBehaviour
 		//PDebug.Log(tree.State);
 	}
 
-	//T Add<T>(T a, T b)
-	//{
-	//	var type = typeof(T);
-
-	//	if (type == typeof(int))
-	//		return Cast<T>.T
-	//}
-
 	void Update()
 	{
 		if (SpawnMany)
 			entityManager.CreateEntity(Entity);
 	}
-
-	float property1 = 2;
-	float property2 = 1.1f;
-
-	public float Property1
-	{
-		get { return property1; }
-		set { property1 = value; }
-	}
-
-	public float Property2
-	{
-		get { return property2; }
-		set { property2 = value; }
-	}
-
-	public float Method1(float a)
-	{
-		return a + 1f;
-	}
-
-	public void Method2(zTest test, float d, float b) { }
 }
 
 [MessageEnum]
