@@ -26,14 +26,6 @@ public class zTest : PMonoBehaviour
 	void Test()
 	{
 		PDebug.Log(binder);
-		//	type.GetMethods(flags)
-		//	.Where(m => !m.IsSpecialName)
-		//	.Concat(types
-		//	.SelectMany(t => t.GetMethods(flags))
-		//	.Where(m => m.IsPrivate && !m.IsSpecialName))
-		//	.Select(m => string.Format("{0}.{1} : {2} ({3})\n", m.DeclaringType.Name, m.Name, m.ReturnType.Name, m.ReflectedType))
-		//	.ToArray());
-
 		//var treeNode = new BehaviourTreeAsset
 		//{
 		//	Root = new SequenceNode
