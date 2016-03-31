@@ -430,19 +430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  D:
-    keys:
-    - A
-    - B
-    - C
-    - D
-    - E
-    values:
-    - E
-    - D
-    - C
-    - B
-    - A
   Entity: {fileID: 0}
   SpawnMany: 0
   Iterations: 1000

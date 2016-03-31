@@ -15,7 +15,6 @@ using Pseudo.Communication;
 
 public class zTest : PMonoBehaviour
 {
-	public StringStringDictionary D;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	public int Iterations = 1000;
