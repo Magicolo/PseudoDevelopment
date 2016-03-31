@@ -4,7 +4,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using Pseudo.Internal.Editor;
+using Pseudo.Editor.Internal;
 using System.IO;
 using Microsoft.CSharp;
 using ICSharpCode.NRefactory;

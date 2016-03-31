@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Pseudo;
-using Pseudo.Internal.Editor;
+using Pseudo.Editor.Internal;
 
-namespace Pseudo.Internal.Tests
+namespace Pseudo.Tests
 {
 	public class GizmosTests : MonoBehaviour
 	{

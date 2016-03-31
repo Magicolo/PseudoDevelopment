@@ -4,28 +4,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
-using Pseudo.Internal.BehaviourTree;
+using Pseudo.BehaviourTree.Internal;
 using System.Reflection;
 using Pseudo.Internal;
-using Pseudo.Internal.Injection;
+using Pseudo.Injection.Internal;
 using UnityEngine.SceneManagement;
+using Pseudo.Injection;
+using Pseudo.EntityFramework;
+using Pseudo.Communication;
 
 public class zTest : PMonoBehaviour
 {
+	public StringStringDictionary D;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	public int Iterations = 1000;
 
 	[Inject]
 	readonly IEntityManager entityManager = null;
-	[Inject]
-	readonly IBinder binder = null;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
-		PDebug.Log(binder);
 		//var treeNode = new BehaviourTreeAsset
 		//{
 		//	Root = new SequenceNode
