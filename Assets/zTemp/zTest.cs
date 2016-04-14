@@ -4,54 +4,55 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Pseudo;
-using Pseudo.BehaviourTree.Internal;
-using System.Reflection;
 using Pseudo.Internal;
-using Pseudo.Injection.Internal;
 using UnityEngine.SceneManagement;
 using Pseudo.Injection;
 using Pseudo.EntityFramework;
 using Pseudo.Communication;
+using UnityEngine.Scripting;
+using Pseudo.Injection.Internal;
 
 public class zTest : PMonoBehaviour
 {
+	public PType Type;
+	public PAssembly Assembly;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
-	public int Iterations = 1000;
+	public int Iterations = 100000;
 
 	[Inject]
 	readonly IEntityManager entityManager = null;
+	[Multiline(15)]
+	public string Data;
 
 	[Button]
 	public bool test;
 	void Test()
 	{
-		//var treeNode = new BehaviourTreeAsset
-		//{
-		//	Root = new SequenceNode
-		//	{
-		//		Children = new List<NodeBase>
-		//		{
-		//			new LogNode(),
-		//			new LogNode()
-		//		}
-		//	}
-		//};
-
-		//var tree = treeNode.CreateAction();
-
-		//PDebug.Log(tree.State);
-
-		//while (tree.Update(null) == ActionStates.Running)
-		//	PDebug.Log(tree.State);
-
-		//PDebug.Log(tree.State);
+		// Test build with assembly references
+		// Check enum flags for correct implementation of Contains
 	}
 
 	void Update()
 	{
 		if (SpawnMany)
 			entityManager.CreateEntity(Entity);
+	}
+
+	void OnGUI()
+	{
+		GUILayout.TextArea(Convert.ToString(Type.Type), GUILayout.Width(Screen.width));
+		GUILayout.TextArea(Convert.ToString(Assembly.Assembly), GUILayout.Width(Screen.width));
+	}
+
+	void OnInjectMember(InjectionContext context, IInjectableMember member)
+	{
+		member.Inject(context);
+	}
+
+	object OnResolveParameter(InjectionContext context, IInjectableParameter parameter)
+	{
+		return parameter.Inject(context);
 	}
 }
 
@@ -64,32 +65,12 @@ public enum Messages : byte
 	Three,
 }
 
-public class LogAction : ActionBase
+public class Thing<T>
 {
-	readonly int maxCount;
-	int count;
+	public readonly T Value;
 
-	public LogAction(int maxCount)
+	public Thing(T value)
 	{
-		this.maxCount = maxCount;
-	}
-
-	public override ActionStates OnExecute(BehaviourTree tree)
-	{
-		count++;
-		PDebug.Log(this, GetHashCode(), count);
-
-		if (count < maxCount)
-			return ActionStates.Running;
-		else
-			return ActionStates.Success;
-	}
-}
-
-public class LogNode : NodeBase
-{
-	public override IAction CreateAction()
-	{
-		return new LogAction(3);
+		Value = value;
 	}
 }

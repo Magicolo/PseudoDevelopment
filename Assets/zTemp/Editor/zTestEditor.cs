@@ -43,6 +43,16 @@ public class zTestEditor : PEditor
 	{
 		base.OnInspectorGUI();
 
+		var test = (zTest)target;
+
+		if (GUILayout.Button("Serialize"))
+		{
+			test.Data = "";
+			test.Data = EditorJsonUtility.ToJson(test, true);
+		}
+		else if (GUILayout.Button("Deserialize"))
+			EditorJsonUtility.FromJsonOverwrite(test.Data, test);
+
 		//ShowCompilationUnit(unit);
 		//Separator();
 		//ShowSaveButton();

@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 190872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854da3c5ffe9fac4682d720ab2c6192b, type: 3}
+  m_Script: {fileID: 11500000, guid: 56d3dcd3e691bae45b340e5008040223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groups:
@@ -164,12 +164,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 185902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854da3c5ffe9fac4682d720ab2c6192b, type: 3}
+  m_Script: {fileID: 11500000, guid: 56d3dcd3e691bae45b340e5008040223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groups:
     value:
-      f1: 2
+      f1: 0
       f2: 0
       f3: 0
       f4: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 131254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854da3c5ffe9fac4682d720ab2c6192b, type: 3}
+  m_Script: {fileID: 11500000, guid: 56d3dcd3e691bae45b340e5008040223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groups:
@@ -224,7 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9f22885a8369c4494a79cc7cf29473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartState: {fileID: 11453712}
   States:
   - Message:
       value: 1
@@ -246,7 +245,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 188608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854da3c5ffe9fac4682d720ab2c6192b, type: 3}
+  m_Script: {fileID: 11500000, guid: 56d3dcd3e691bae45b340e5008040223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groups:
@@ -277,7 +276,7 @@ MonoBehaviour:
       Message:
         value: 0
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 2
+      Scope: 0
   Time: {fileID: 11409260}
 --- !u!114 &11477444
 MonoBehaviour:
@@ -297,7 +296,7 @@ MonoBehaviour:
       Message:
         value: 3
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 2
+      Scope: 0
   Time: {fileID: 11409260}
 --- !u!114 &11481592
 MonoBehaviour:
@@ -317,7 +316,7 @@ MonoBehaviour:
       Message:
         value: 2
         typeName: Messages, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      Propagation: 2
+      Scope: 0
   Time: {fileID: 11409260}
 --- !u!1001 &100100000
 Prefab:

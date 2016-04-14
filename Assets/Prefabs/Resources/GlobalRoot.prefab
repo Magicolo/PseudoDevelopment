@@ -29,6 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11402754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -57,6 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   installers:
   - {fileID: 11402754}
+  Assemblies:
+  - assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
