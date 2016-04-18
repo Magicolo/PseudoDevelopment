@@ -11,6 +11,7 @@ using Pseudo.EntityFramework;
 using Pseudo.Communication;
 using UnityEngine.Scripting;
 using Pseudo.Injection.Internal;
+using UnityEngine.Assertions;
 
 public class zTest : PMonoBehaviour
 {
@@ -29,8 +30,13 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
+		// Solve the Additionnal arguments implementation
 		// Test build with assembly references
 		// Check enum flags for correct implementation of Contains
+		var method = typeof(zTest).GetMethod("Method");
+		var parameter = method.GetParameters()[0];
+
+		PDebug.Log(method, parameter);
 	}
 
 	void Update()
@@ -45,15 +51,7 @@ public class zTest : PMonoBehaviour
 		GUILayout.TextArea(Convert.ToString(Assembly.Assembly), GUILayout.Width(Screen.width));
 	}
 
-	void OnInjectMember(InjectionContext context, IInjectableMember member)
-	{
-		member.Inject(context);
-	}
-
-	object OnResolveParameter(InjectionContext context, IInjectableParameter parameter)
-	{
-		return parameter.Inject(context);
-	}
+	public void Method(int test = 123) { }
 }
 
 [MessageEnum]
@@ -65,12 +63,8 @@ public enum Messages : byte
 	Three,
 }
 
-public class Thing<T>
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
+public sealed class InjectAllAttribute : PreserveAttribute
 {
-	public readonly T Value;
 
-	public Thing(T value)
-	{
-		Value = value;
-	}
 }
