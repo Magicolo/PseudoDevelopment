@@ -437,8 +437,8 @@ MonoBehaviour:
   Type:
     typeName: Pseudo.ArchitectBehavior, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  Assembly:
-    assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Assemblies:
+  - assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   Entity: {fileID: 11477238, guid: 9dccf3c7623af554580e6b9ed1191034, type: 2}
   SpawnMany: 0
   Iterations: 1000

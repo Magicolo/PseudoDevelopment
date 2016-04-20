@@ -12,11 +12,14 @@ using Pseudo.Communication;
 using UnityEngine.Scripting;
 using Pseudo.Injection.Internal;
 using UnityEngine.Assertions;
+using System.Reflection;
+using Pseudo.Reflection;
+using Pseudo.Reflection.Internal;
 
 public class zTest : PMonoBehaviour
 {
 	public PType Type;
-	public PAssembly Assembly;
+	public PAssembly[] Assemblies;
 	public EntityBehaviour Entity;
 	public bool SpawnMany = true;
 	public int Iterations = 100000;
@@ -33,10 +36,10 @@ public class zTest : PMonoBehaviour
 		// Solve the Additionnal arguments implementation
 		// Test build with assembly references
 		// Check enum flags for correct implementation of Contains
-		var method = typeof(zTest).GetMethod("Method");
-		var parameter = method.GetParameters()[0];
 
-		PDebug.Log(method, parameter);
+		var container = new Container();
+		var scope = new CustomScope();
+		container.Binder.Bind<IEntity[]>().ToMethod(c => c.Container.Resolver.ResolveAll<IEntity>().ToArray()).As(scope);
 	}
 
 	void Update()
@@ -48,10 +51,16 @@ public class zTest : PMonoBehaviour
 	void OnGUI()
 	{
 		GUILayout.TextArea(Convert.ToString(Type.Type), GUILayout.Width(Screen.width));
-		GUILayout.TextArea(Convert.ToString(Assembly.Assembly), GUILayout.Width(Screen.width));
+		GUILayout.TextArea(PDebug.ToString(Assemblies), GUILayout.Width(Screen.width));
 	}
 
-	public void Method(int test = 123) { }
+	public class CustomScope : IInjectionScope
+	{
+		public object GetInstance(IInjectionFactory factory, InjectionContext context)
+		{
+			return factory.Create(context);
+		}
+	}
 }
 
 [MessageEnum]

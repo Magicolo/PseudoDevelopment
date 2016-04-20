@@ -16,6 +16,7 @@ using System.Reflection;
 using Pseudo.Internal;
 using UnityEditorInternal;
 using Pseudo;
+using Pseudo.Reflection;
 
 [CustomEditor(typeof(zTest))]
 public class zTestEditor : PEditor
