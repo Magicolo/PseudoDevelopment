@@ -15,9 +15,23 @@ using UnityEngine.Assertions;
 using System.Reflection;
 using Pseudo.Reflection;
 using Pseudo.Reflection.Internal;
+using System.Threading;
+using System.Runtime.InteropServices;
 
 public class zTest : PMonoBehaviour
 {
+	/*
+	* IInitializer (initialize instances to their reference state
+	* ITypeAnalyzer (analyzes a type and produces a corresponding ITypeInfo)
+	* ITypeInfo (holds the info and accessors required for initialization)
+	* IUpdater *find better name* (updates the IInitializer and feeds it the instances to be initialized)
+	* IPool / IPool<T>
+	* IPoolManager *find better name* (centralises the access to the pools)
+	*/
+	// Solve the Additionnal arguments implementation
+	// Test build with assembly references
+	// Check enum flags for correct implementation of Contains
+
 	public PType Type;
 	public PAssembly[] Assemblies;
 	public EntityBehaviour Entity;
@@ -33,13 +47,6 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
-		// Solve the Additionnal arguments implementation
-		// Test build with assembly references
-		// Check enum flags for correct implementation of Contains
-
-		var container = new Container();
-		var scope = new CustomScope();
-		container.Binder.Bind<IEntity[]>().ToMethod(c => c.Container.Resolver.ResolveAll<IEntity>().ToArray()).As(scope);
 	}
 
 	void Update()
@@ -53,14 +60,6 @@ public class zTest : PMonoBehaviour
 		GUILayout.TextArea(Convert.ToString(Type.Type), GUILayout.Width(Screen.width));
 		GUILayout.TextArea(PDebug.ToString(Assemblies), GUILayout.Width(Screen.width));
 	}
-
-	public class CustomScope : IInjectionScope
-	{
-		public object GetInstance(IInjectionFactory factory, InjectionContext context)
-		{
-			return factory.Create(context);
-		}
-	}
 }
 
 [MessageEnum]
@@ -70,10 +69,4 @@ public enum Messages : byte
 	One,
 	Two,
 	Three,
-}
-
-[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
-public sealed class InjectAllAttribute : PreserveAttribute
-{
-
 }
