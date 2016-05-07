@@ -17,18 +17,32 @@ using Pseudo.Reflection;
 using Pseudo.Reflection.Internal;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
+using Pseudo.Pooling2;
+using Pseudo.Initialization;
+using System.ComponentModel;
 
 public class zTest : PMonoBehaviour
 {
 	/*
+	 * Initialization problem:
+	 * null -> null = nothing
+	 * class -> null = direct assign
+	 * class -> class = recursive assign if same type else ???
+	 * null -> class = ???
+	 * 
+	 * struct -> default = direct assign
+	 * struct -> struct = direct assign if pure else recursive assign
+	 * default -> struct = direct assign if pure else ???
+	 * 
 	* IInitializer (initialize instances to their reference state
 	* ITypeAnalyzer (analyzes a type and produces a corresponding ITypeInfo)
 	* ITypeInfo (holds the info and accessors required for initialization)
 	* IUpdater *find better name* (updates the IInitializer and feeds it the instances to be initialized)
 	* IPool / IPool<T>
-	* IPoolManager *find better name* (centralises the access to the pools)
+	* IPoolManager *find better name* (centralizes the access to the pools)
 	*/
-	// Solve the Additionnal arguments implementation
+	// Solve the Additional arguments implementation
 	// Test build with assembly references
 	// Check enum flags for correct implementation of Contains
 
@@ -39,7 +53,7 @@ public class zTest : PMonoBehaviour
 	public int Iterations = 100000;
 
 	[Inject]
-	readonly IEntityManager entityManager = null;
+	IEntityManager entityManager = null;
 	[Multiline(15)]
 	public string Data;
 
