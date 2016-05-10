@@ -462,8 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type:
-    typeName: Pseudo.ArchitectBehavior, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    typeName: zTest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   Assemblies:
   - assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   Entity: {fileID: 11477238, guid: 9dccf3c7623af554580e6b9ed1191034, type: 2}
