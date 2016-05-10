@@ -61,6 +61,10 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
+		var flags = new ByteFlag(1, 2, 3);
+		PDebug.Log(flags);
+		var b = flags + 4;
+		PDebug.Log(flags, b);
 	}
 
 	void Update()
@@ -83,4 +87,20 @@ public enum Messages : byte
 	One,
 	Two,
 	Three,
+}
+
+public interface IFlags<T>
+{
+	T Add(byte flag);
+	T Add(T flags);
+	T Remove(byte flag);
+	T Remove(T flags);
+	T And(T flags);
+	T Or(T flags);
+	T Xor(T flags);
+	T Not();
+	bool Has(byte flag);
+	bool HasAll(T flags);
+	bool HasAny(T flags);
+	bool HasNone(T flags);
 }

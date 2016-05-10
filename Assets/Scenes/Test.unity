@@ -468,7 +468,7 @@ MonoBehaviour:
   - assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   Entity: {fileID: 11477238, guid: 9dccf3c7623af554580e6b9ed1191034, type: 2}
   SpawnMany: 0
-  Iterations: 100000
+  Iterations: 10000
   Data: 
   test: 0
 --- !u!1 &1011950830
