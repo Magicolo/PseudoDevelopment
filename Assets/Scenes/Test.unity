@@ -446,7 +446,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1531084584}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -462,10 +463,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type:
-    typeName: zTest, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Assemblies:
-  - assemblyName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  Entity: {fileID: 11477238, guid: 9dccf3c7623af554580e6b9ed1191034, type: 2}
+    typeName: AOT.MonoPInvokeCallbackAttribute, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Assemblies: []
+  Entity: {fileID: 0}
   SpawnMany: 0
   Iterations: 10000
   Data: 
@@ -721,6 +722,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1223337411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 197006, guid: f45870b1e3d91ce4daa56c45519e5772, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1223337412}
+  - 114: {fileID: 1223337413}
+  m_Layer: 0
+  m_Name: zTest (2)
+  m_TagString: Boba
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1223337412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 476074, guid: f45870b1e3d91ce4daa56c45519e5772, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223337411}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1531084584}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223337413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1223337411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type:
+    typeName: AOT.MonoPInvokeCallbackAttribute, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Assemblies: []
+  Entity: {fileID: 0}
+  SpawnMany: 0
+  Iterations: 10000
+  Data: 
+  test: 0
 --- !u!1 &1383659932
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +1026,106 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1454927333}
+--- !u!1 &1531084583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 197006, guid: f45870b1e3d91ce4daa56c45519e5772, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1531084584}
+  - 114: {fileID: 1531084585}
+  m_Layer: 0
+  m_Name: zTest (1)
+  m_TagString: Boba
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531084584
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 476074, guid: f45870b1e3d91ce4daa56c45519e5772, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1531084583}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1223337412}
+  - {fileID: 1673012739}
+  m_Father: {fileID: 864135843}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531084585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1531084583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type:
+    typeName: AOT.MonoPInvokeCallbackAttribute, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Assemblies: []
+  Entity: {fileID: 0}
+  SpawnMany: 0
+  Iterations: 10000
+  Data: 
+  test: 0
+--- !u!1 &1673012738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 197006, guid: f45870b1e3d91ce4daa56c45519e5772, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1673012739}
+  - 114: {fileID: 1673012740}
+  m_Layer: 0
+  m_Name: zTest (3)
+  m_TagString: Boba
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1673012739
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 476074, guid: f45870b1e3d91ce4daa56c45519e5772, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673012738}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1531084584}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673012740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1673012738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e55c372547dee48baf530fce464554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type:
+    typeName: AOT.MonoPInvokeCallbackAttribute, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Assemblies: []
+  Entity: {fileID: 0}
+  SpawnMany: 0
+  Iterations: 10000
+  Data: 
+  test: 0
 --- !u!1 &1707783338
 GameObject:
   m_ObjectHideFlags: 0
