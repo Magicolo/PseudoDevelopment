@@ -18,7 +18,7 @@ using Pseudo.Reflection.Internal;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
-using Pseudo.Pooling2;
+using Pseudo.Pooling;
 using System.ComponentModel;
 
 public class zTest : PMonoBehaviour
@@ -60,18 +60,45 @@ public class zTest : PMonoBehaviour
 	public bool test;
 	void Test()
 	{
-		PDebug.Log(typeof(List<>).Is(typeof(List<>)));
-		PDebug.Log(typeof(List<>).Is(typeof(IList<>)));
-		PDebug.Log(typeof(IList<>).Is(typeof(IList<>)));
-		//var instance = A.Pool.Create();
-		//PDebug.Log(instance.Value);
-		//A.Pool.Recycle(instance);
+		// Use attributes to tag default modules for Initializer, Copier, Caster, Cloner, PEqualityComparer, PComparer, etc...
+		// Use attributes to define the types that can be handled by the modules		
+		// Thrash Initialization
+		// Thrash other Pooling folders
+		// Go over Generic components to fix pooling
+		// Check AudioManager to fix pooling
+		// Check oscillation to fix pooling
+		// Check EntityFramework to fix pooling
+		// Check ParticleManager to fix pooling
+		// Is there an allocation when passing a reference argument to SendMessage?
+		// Remove component groups or make them public?
+
+		PDebug.Log(Base.Pool.Create(typeof(Base)));
+		PDebug.Log(Base.Pool.Create(typeof(Sub1)));
+		PDebug.Log(Base.Pool.Create(typeof(Sub2)));
+		PDebug.Log(Base.Pool.Create(typeof(SubSub1)));
+		PDebug.Log(Base.Pool.Create(typeof(zTest)));
 	}
 
 	void Update()
 	{
 		if (SpawnMany)
 			entityManager.CreateEntity(Entity);
+
+		//for (int i = 0; i < Iterations; i++)
+		//{
+		//	Profiler.BeginSample("Save");
+		//	var data = JsonUtility.ToJson(Ser);
+		//	Profiler.EndSample();
+		//	Profiler.BeginSample("Load");
+		//	JsonUtility.FromJsonOverwrite(Data, Ser);
+		//	Profiler.EndSample();
+		//	Profiler.BeginSample("Instantiate");
+		//	var instance = Instantiate(Ser);
+		//	Profiler.EndSample();
+		//	Profiler.BeginSample("Destroy");
+		//	Destroy(instance.gameObject);
+		//	Profiler.EndSample();
+		//}
 	}
 
 	void OnGUI()
@@ -79,9 +106,6 @@ public class zTest : PMonoBehaviour
 		GUILayout.TextArea(Convert.ToString(Type.Type), GUILayout.Width(Screen.width));
 		GUILayout.TextArea(PDebug.ToString(Assemblies), GUILayout.Width(Screen.width));
 	}
-
-	void OnCreate() { }
-	void OnRecycle() { }
 }
 
 [MessageEnum]
@@ -91,6 +115,27 @@ public enum Messages : byte
 	One,
 	Two,
 	Three,
+}
+
+public class Base
+{
+	public static readonly IMultiPool<Base> Pool = new MultiPool<Base>();
+}
+
+public class Sub1 : Base
+{
+}
+
+public class Sub2 : Base
+{
+}
+
+public class SubSub1 : Sub1
+{
+	SubSub1(string par)
+	{
+
+	}
 }
 
 public class A
