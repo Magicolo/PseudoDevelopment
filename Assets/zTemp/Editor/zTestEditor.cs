@@ -18,7 +18,7 @@ using UnityEditorInternal;
 using Pseudo;
 using Pseudo.Reflection;
 
-[CustomEditor(typeof(zTest))]
+[CustomEditor(typeof(zTest)), CanEditMultipleObjects]
 public class zTestEditor : PEditor
 {
 	const string directory = "Assets/zTemp/Data/";
